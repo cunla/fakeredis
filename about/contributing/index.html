@@ -1,0 +1,1721 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for fakeredis python library">
+      
+      
+        <meta name="author" content="Daniel Moran">
+      
+      
+      
+        <link rel="prev" href="../changelog/">
+      
+      
+        <link rel="next" href="../license/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.48">
+    
+    
+      
+        <title>Contributing - fakeredis</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-GJBJBKXT19"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-GJBJBKXT19",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-GJBJBKXT19",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+<meta name="google-adsense-account" content="ca-pub-2802331499006697">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2802331499006697"
+        crossorigin="anonymous"></script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#contributing-to-fakeredis" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="fakeredis" class="md-header__button md-logo" aria-label="fakeredis" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            fakeredis
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Contributing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cunla/fakeredis" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cunla/fakeredis
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="fakeredis" class="md-nav__button md-logo" aria-label="fakeredis" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    fakeredis
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cunla/fakeredis" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cunla/fakeredis
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redis-stack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Redis stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dragonfly-support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dragonfly support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../valkey-support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Valkey support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../supported-commands/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Supported commands
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Supported commands
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../supported-commands/Redis/BITMAP/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Redis commands
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supported-commands/RedisJson/JSON/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RedisJSON commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supported-commands/RedisTimeSeries/TIMESERIES/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Time Series commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../supported-commands/RedisBloom/BF/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Probabilistic commands
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supported-commands/RedisSearch/SEARCH/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Search commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supported-commands/RedisSearch/SUGGESTION/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suggestion commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supported-commands/DRAGONFLY/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dragonfly commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Guides
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/implement-command/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implementing support for a command
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/test-case/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Write a new test case
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            About
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+    <a href="#code-of-conduct" class="md-nav__link">
+      <span class="md-ellipsis">
+        Code of Conduct
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#i-have-a-question" class="md-nav__link">
+      <span class="md-ellipsis">
+        I Have a Question
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#i-want-to-contribute" class="md-nav__link">
+      <span class="md-ellipsis">
+        I Want To Contribute
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="I Want To Contribute">
+        <ul class="md-nav__list">
+            
+                
+                    <li class="md-nav__item">
+    <a href="#legal-notice" class="md-nav__link">
+      <span class="md-ellipsis">
+        Legal Notice
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#reporting-bugs" class="md-nav__link">
+      <span class="md-ellipsis">
+        Reporting Bugs
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="Reporting Bugs">
+        <ul class="md-nav__list">
+            
+                
+                    <li class="md-nav__item">
+    <a href="#before-submitting-a-bug-report" class="md-nav__link">
+      <span class="md-ellipsis">
+        Before Submitting a Bug Report
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#how-do-i-submit-a-good-bug-report" class="md-nav__link">
+      <span class="md-ellipsis">
+        How Do I Submit a Good Bug Report?
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#suggesting-enhancements" class="md-nav__link">
+      <span class="md-ellipsis">
+        Suggesting Enhancements
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="Suggesting Enhancements">
+        <ul class="md-nav__list">
+            
+                
+                    <li class="md-nav__item">
+    <a href="#before-submitting-an-enhancement" class="md-nav__link">
+      <span class="md-ellipsis">
+        Before Submitting an Enhancement
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#how-do-i-submit-a-good-enhancement-suggestion" class="md-nav__link">
+      <span class="md-ellipsis">
+        How Do I Submit a Good Enhancement Suggestion?
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#your-first-code-contribution" class="md-nav__link">
+      <span class="md-ellipsis">
+        Your First Code Contribution
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="Your First Code Contribution">
+        <ul class="md-nav__list">
+            
+                
+                    <li class="md-nav__item">
+    <a href="#getting-started" class="md-nav__link">
+      <span class="md-ellipsis">
+        Getting started
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#improving-the-documentation" class="md-nav__link">
+      <span class="md-ellipsis">
+        Improving The Documentation
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#style-guides" class="md-nav__link">
+      <span class="md-ellipsis">
+        Style guides
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="Style guides">
+        <ul class="md-nav__list">
+            
+                
+                    <li class="md-nav__item">
+    <a href="#commit-messages" class="md-nav__link">
+      <span class="md-ellipsis">
+        Commit Messages
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#join-the-project-team" class="md-nav__link">
+      <span class="md-ellipsis">
+        Join The Project Team
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+    <a href="#code-of-conduct" class="md-nav__link">
+      <span class="md-ellipsis">
+        Code of Conduct
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#i-have-a-question" class="md-nav__link">
+      <span class="md-ellipsis">
+        I Have a Question
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#i-want-to-contribute" class="md-nav__link">
+      <span class="md-ellipsis">
+        I Want To Contribute
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="I Want To Contribute">
+        <ul class="md-nav__list">
+            
+                
+                    <li class="md-nav__item">
+    <a href="#legal-notice" class="md-nav__link">
+      <span class="md-ellipsis">
+        Legal Notice
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#reporting-bugs" class="md-nav__link">
+      <span class="md-ellipsis">
+        Reporting Bugs
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="Reporting Bugs">
+        <ul class="md-nav__list">
+            
+                
+                    <li class="md-nav__item">
+    <a href="#before-submitting-a-bug-report" class="md-nav__link">
+      <span class="md-ellipsis">
+        Before Submitting a Bug Report
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#how-do-i-submit-a-good-bug-report" class="md-nav__link">
+      <span class="md-ellipsis">
+        How Do I Submit a Good Bug Report?
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#suggesting-enhancements" class="md-nav__link">
+      <span class="md-ellipsis">
+        Suggesting Enhancements
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="Suggesting Enhancements">
+        <ul class="md-nav__list">
+            
+                
+                    <li class="md-nav__item">
+    <a href="#before-submitting-an-enhancement" class="md-nav__link">
+      <span class="md-ellipsis">
+        Before Submitting an Enhancement
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#how-do-i-submit-a-good-enhancement-suggestion" class="md-nav__link">
+      <span class="md-ellipsis">
+        How Do I Submit a Good Enhancement Suggestion?
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#your-first-code-contribution" class="md-nav__link">
+      <span class="md-ellipsis">
+        Your First Code Contribution
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="Your First Code Contribution">
+        <ul class="md-nav__list">
+            
+                
+                    <li class="md-nav__item">
+    <a href="#getting-started" class="md-nav__link">
+      <span class="md-ellipsis">
+        Getting started
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#improving-the-documentation" class="md-nav__link">
+      <span class="md-ellipsis">
+        Improving The Documentation
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#style-guides" class="md-nav__link">
+      <span class="md-ellipsis">
+        Style guides
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="Style guides">
+        <ul class="md-nav__list">
+            
+                
+                    <li class="md-nav__item">
+    <a href="#commit-messages" class="md-nav__link">
+      <span class="md-ellipsis">
+        Commit Messages
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#join-the-project-team" class="md-nav__link">
+      <span class="md-ellipsis">
+        Join The Project Team
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/cunla/fakeredis/edit/master/docs/about/contributing.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/cunla/fakeredis/raw/master/docs/about/contributing.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="contributing-to-fakeredis">Contributing to fakeredis<a class="headerlink" href="#contributing-to-fakeredis" title="Permanent link">&para;</a></h1>
+<p>First off, thanks for taking the time to contribute! ❤️</p>
+<p>All types of contributions are encouraged and valued.
+See the table of contents for different ways to help and details about how this project handles
+them. Please make sure to read the relevant section before making your contribution. It will make it a lot easier for
+the maintainers and smooth out the experience for all involved. The community looks forward to your contributions. 🎉</p>
+<blockquote>
+<p>And if you like the project, but just don't have time to contribute, that's fine.</p>
+<p>There are other easy ways to support the project and show your appreciation, which we would also be very happy about:</p>
+<ul>
+<li>Star the project</li>
+<li>Tweet about it</li>
+<li>Refer to this project in your project's readme</li>
+<li>Mention the project at local meetups and tell your friends/colleagues</li>
+</ul>
+</blockquote>
+<h2 id="code-of-conduct">Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Permanent link">&para;</a></h2>
+<p>This project and everyone participating in it is governed by the
+<a href="https://github.com/cunla/fakeredis-py/blob/master/CODE_OF_CONDUCT.md">fakeredis Code of Conduct</a>.
+By participating, you are expected to uphold this code. Please report unacceptable behavior
+to <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#100;&#97;&#110;&#105;&#101;&#108;&#64;&#109;&#111;&#114;&#97;&#110;&#115;&#111;&#102;&#116;&#119;&#97;&#114;&#101;&#46;&#99;&#97;">&#100;&#97;&#110;&#105;&#101;&#108;&#64;&#109;&#111;&#114;&#97;&#110;&#115;&#111;&#102;&#116;&#119;&#97;&#114;&#101;&#46;&#99;&#97;</a>.</p>
+<h2 id="i-have-a-question">I Have a Question<a class="headerlink" href="#i-have-a-question" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>If you want to ask a question, we assume that you have read the
+available <a href="https://fakeredis.readthedocs.io/">Documentation</a>.</p>
+</blockquote>
+<p>Before you ask a question, it is best to search for existing <a href="https://github.com/cunla/fakeredis-py/issues">Issues</a> that
+might help you. In case you have found a suitable issue and still need clarification, you can write your question in
+this issue. It is also advisable to search the internet for answers first.</p>
+<p>If you then still feel the need to ask a question and need clarification, we recommend the following:</p>
+<ul>
+<li>Open an <a href="https://github.com/cunla/fakeredis-py/issues/new">Issue</a>.</li>
+<li>Provide as much context as you can about what you're running into.</li>
+<li>Provide project and platform versions (nodejs, npm, etc), depending on what seems relevant.</li>
+</ul>
+<p>We will then take care of the issue as soon as possible.</p>
+<!--
+You might want to create a separate issue tag for questions and include it in this description. 
+People should then tag their issues accordingly.
+
+Depending on how large the project is, you may want to outsource the questioning, e.g., to Stack Overflow or Gitter. 
+You may add additional contact and information possibilities:
+- IRC
+- Slack
+- Gitter
+- Stack Overflow tag
+- Blog
+- FAQ
+- Roadmap
+- E-Mail List
+- Forum
+-->
+
+<h2 id="i-want-to-contribute">I Want To Contribute<a class="headerlink" href="#i-want-to-contribute" title="Permanent link">&para;</a></h2>
+<blockquote>
+<h3 id="legal-notice">Legal Notice <!-- omit in toc --><a class="headerlink" href="#legal-notice" title="Permanent link">&para;</a></h3>
+<p>When contributing to this project, you must agree that you have authored 100% of the content, that you have the
+necessary rights to the content and that the content you contribute may be provided under the project license.</p>
+</blockquote>
+<h2 id="reporting-bugs">Reporting Bugs<a class="headerlink" href="#reporting-bugs" title="Permanent link">&para;</a></h2>
+<h3 id="before-submitting-a-bug-report">Before Submitting a Bug Report<a class="headerlink" href="#before-submitting-a-bug-report" title="Permanent link">&para;</a></h3>
+<p>A good bug report shouldn't leave others needing to chase you up for more information.
+Therefore, we ask you to investigate carefully, collect information and describe the issue in detail in your report.
+Please complete the following steps in advance to help us fix any potential bug as fast as possible.</p>
+<ul>
+<li>Make sure that you are using the latest version.</li>
+<li>Determine if your bug is really a bug and not an error on your side, e.g., using incompatible
+  environment components/versions (Make sure that you have read
+  the <a href="https://github.com/cunla/fakeredis-py">documentation</a>.
+  If you are looking for support, you might want to check <a href="#i-have-a-question">this section</a>).</li>
+<li>To see if other users have experienced (and potentially already solved) the same issue you are having,
+  check if there is not already a bug report existing for your bug or error in
+  the <a href="https://github.com/cunla/fakeredis-py/issues?q=label%3Abug">bug tracker</a>.</li>
+<li>Also make sure to search the internet (including Stack Overflow) to see if users outside the GitHub
+  community have discussed the issue.</li>
+<li>Collect information about the bug:<ul>
+<li>Stack trace (Traceback)</li>
+<li>OS, Platform and Version (Windows, Linux, macOS, x86, ARM)</li>
+<li>Version of the interpreter, compiler, SDK, runtime environment, package manager, depending on what seems relevant.</li>
+<li>Possibly your input and the output</li>
+<li>Can you reliably reproduce the issue? And can you also reproduce it with older versions?</li>
+</ul>
+</li>
+</ul>
+<h3 id="how-do-i-submit-a-good-bug-report">How Do I Submit a Good Bug Report?<a class="headerlink" href="#how-do-i-submit-a-good-bug-report" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>You must never report security related issues, vulnerabilities or bugs, including sensitive information
+to the issue tracker, or elsewhere in public.
+Instead, sensitive bugs must be sent by email to <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#100;&#97;&#110;&#105;&#101;&#108;&#64;&#109;&#111;&#114;&#97;&#110;&#115;&#111;&#102;&#116;&#119;&#97;&#114;&#101;&#46;&#99;&#97;">&#100;&#97;&#110;&#105;&#101;&#108;&#64;&#109;&#111;&#114;&#97;&#110;&#115;&#111;&#102;&#116;&#119;&#97;&#114;&#101;&#46;&#99;&#97;</a>.</p>
+</blockquote>
+<p>We use GitHub issues to track bugs and errors. If you run into an issue with the project:</p>
+<ul>
+<li>Open an <a href="https://github.com/cunla/fakeredis-py/issues/new">Issue</a>.
+  (Since we can't be sure at this point whether it is a bug or not, we ask you not to talk about a bug yet and
+  not to label the issue.)</li>
+<li>Follow the issue template and provide as much context as possible and describe the <em>reproduction steps</em> that someone
+  else can follow to recreate the issue on their own.
+  This usually includes your code.
+  For good bug reports, you should isolate the problem and create a reduced test case.</li>
+<li>Provide the information you collected in the previous section.</li>
+</ul>
+<p>Once it's filed:</p>
+<ul>
+<li>The project team will label the issue accordingly.</li>
+<li>A team member will try to reproduce the issue with your provided steps. If there are no reproduction steps or no
+  obvious way to reproduce the issue, the team will ask you for those steps and mark the issue as <code>needs-repro</code>. Bugs
+  with the <code>needs-repro</code> tag will not be addressed until they are reproduced.</li>
+<li>If the team is able to reproduce the issue, it will be marked <code>needs-fix</code>, as well as possibly other tags (such
+  as <code>critical</code>), and the issue will be left to be <a href="#your-first-code-contribution">implemented by someone</a>.</li>
+</ul>
+<!-- You might want to create an issue template for bugs and errors that can be used as a guide and that defines the structure of the information to be included. If you do so, reference it here in the description. -->
+
+<h2 id="suggesting-enhancements">Suggesting Enhancements<a class="headerlink" href="#suggesting-enhancements" title="Permanent link">&para;</a></h2>
+<p>This section guides you through submitting an enhancement suggestion for fakeredis, <strong>including completely new features
+and minor improvements to existing functionality</strong>. Following these guidelines will help maintainers and the community
+to understand your suggestion and find related suggestions.</p>
+<h3 id="before-submitting-an-enhancement">Before Submitting an Enhancement<a class="headerlink" href="#before-submitting-an-enhancement" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Make sure that you are using the latest version.</li>
+<li>Read the <a href="https://github.com/cunla/fakeredis-py">documentation</a> carefully and find out if the functionality is already
+  covered, maybe by an individual configuration.</li>
+<li>Perform a <a href="https://github.com/cunla/fakeredis-py/issues">search</a> to see if the enhancement has already been suggested.
+  If it has, add a comment to the existing issue instead of opening a new one.</li>
+<li>Find out whether your idea fits with the scope and aims of the project. It's up to you to make a strong case to
+  convince the project's developers of the merits of this feature. Keep in mind that we want features that will be
+  useful to the majority of our users and not just a small subset. If you're just targeting a minority of users,
+  consider writing an add-on/plugin library.</li>
+</ul>
+<h3 id="how-do-i-submit-a-good-enhancement-suggestion">How Do I Submit a Good Enhancement Suggestion?<a class="headerlink" href="#how-do-i-submit-a-good-enhancement-suggestion" title="Permanent link">&para;</a></h3>
+<p>Enhancement suggestions are tracked as <a href="https://github.com/cunla/fakeredis-py/issues">GitHub issues</a>.</p>
+<ul>
+<li>Use a <strong>clear and descriptive title</strong> for the issue to identify the suggestion.</li>
+<li>Provide a <strong>step-by-step description of the suggested enhancement</strong> in as many details as possible.</li>
+<li><strong>Describe the current behavior</strong> and <strong>explain which behavior you expected to see instead</strong> and why. At this point
+  you can also tell which alternatives do not work for you.</li>
+<li>You may want to <strong>include screenshots and animated GIFs</strong> which help you demonstrate the steps or point out the part
+  which the suggestion is related to. You can use <a href="https://www.cockos.com/licecap/">this tool</a> to record GIFs on macOS
+  and Windows, and <a href="https://github.com/colinkeenan/silentcast">this tool</a>
+  or <a href="https://github.com/GNOME/byzanz">this tool</a> on
+  Linux. <!-- this should only be included if the project has a GUI --></li>
+<li><strong>Explain why this enhancement would be useful</strong> to most fakeredis users. You may also want to point out the other
+  projects that solved it better and which could serve as inspiration.</li>
+</ul>
+<!-- You might want to create an issue template for enhancement suggestions that can be used as a guide and that defines the structure of the information to be included. If you do so, reference it here in the description. -->
+
+<h2 id="your-first-code-contribution">Your First Code Contribution<a class="headerlink" href="#your-first-code-contribution" title="Permanent link">&para;</a></h2>
+<p>Unsure where to begin contributing? You can start by looking through
+<a href="https://github.com/cunla/fakeredis-py/labels/help%20wanted">help-wanted issues</a>.</p>
+<p>Never contributed to open source before? Here are a couple of friendly
+tutorials:</p>
+<ul>
+<li><a href="http://makeapullrequest.com/">http://makeapullrequest.com/</a></li>
+<li><a href="http://www.firsttimersonly.com/">http://www.firsttimersonly.com/</a></li>
+</ul>
+<h3 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Create your own fork of the repository</li>
+<li>Do the changes in your fork</li>
+<li>Setup poetry <code>pip install poetry</code></li>
+<li>Let poetry install everything required for a local environment <code>poetry install</code></li>
+<li>To run all tests, use: <code>poetry run pytest -v</code></li>
+<li>Note: In order to run the tests, a real redis server should be running.
+  The tests are comparing the results of each command between fakeredis and a real redis.<ul>
+<li>You can use <code>docker-compose up redis6</code> or <code>docker-compose up redis7</code> to run redis.</li>
+</ul>
+</li>
+<li>Run test with coverage using <code>poetry run pytest -v --cov=fakeredis --cov-branch</code>
+  and then you can run <code>coverage report</code>.</li>
+</ul>
+<h2 id="improving-the-documentation">Improving The Documentation<a class="headerlink" href="#improving-the-documentation" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Create your own fork of the repository.</li>
+<li>Do the changes in your fork, probably under the <code>docs/</code> folder.</li>
+<li>Create a pull request with the changes.</li>
+</ul>
+<h2 id="style-guides">Style guides<a class="headerlink" href="#style-guides" title="Permanent link">&para;</a></h2>
+<h3 id="commit-messages">Commit Messages<a class="headerlink" href="#commit-messages" title="Permanent link">&para;</a></h3>
+<p>Taken from <a href="https://www.conventionalcommits.org/en/v1.0.0/">conventional commits</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>&lt;type&gt;[optional scope]: &lt;description&gt;
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>[optional body]
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>[optional footer(s)]
+</code></pre></div>
+<p>The commit contains the following structural elements to communicate intent to the consumers of your library:</p>
+<ul>
+<li><code>fix:</code> a commit of the type fix patches a bug in your codebase (this correlates with <code>PATCH</code> in Semantic Versioning).</li>
+<li><code>feat:</code> a commit of the type feat introduces a new feature to the codebase (this correlates with <code>MINOR</code> in Semantic
+  Versioning).</li>
+<li><code>BREAKING CHANGE:</code> a commit that has a footer BREAKING CHANGE:, or appends a ! after the type/scope, introduces a
+  breaking API change (correlating with MAJOR in Semantic Versioning). A BREAKING CHANGE can be part of commits of any
+  type.</li>
+<li>types other than <code>fix:</code> and <code>feat:</code> are allowed, for example, <code>@commitlint/config-conventional</code> (based on the Angular
+  convention) recommends <code>build:</code>, <code>chore:</code>, <code>ci:</code>, <code>docs:</code>, <code>style:</code>, <code>refactor:</code>, <code>perf:</code>, <code>test:</code>, and others.</li>
+<li>footers other than <code>BREAKING CHANGE: &lt;description&gt;</code> may be provided and follow a convention similar to
+  <a href="https://git-scm.com/docs/git-interpret-trailers">git trailer format</a>.</li>
+</ul>
+<p>Additional types are not mandated by the Conventional Commits specification, and have no implicit effect in Semantic
+Versioning (unless they include a BREAKING CHANGE). A scope may be provided to a commit’s type, to provide additional
+contextual information and is contained within parenthesis, e.g., feat(parser): add ability to parse arrays.</p>
+<h2 id="join-the-project-team">Join The Project Team<a class="headerlink" href="#join-the-project-team" title="Permanent link">&para;</a></h2>
+<p>If you wish to be added to the project team as a collaborator, please send
+a message to <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#100;&#97;&#110;&#105;&#101;&#108;&#64;&#109;&#111;&#114;&#97;&#110;&#115;&#111;&#102;&#116;&#119;&#97;&#114;&#101;&#46;&#99;&#97;">&#100;&#97;&#110;&#105;&#101;&#108;&#64;&#109;&#111;&#114;&#97;&#110;&#115;&#111;&#102;&#116;&#119;&#97;&#114;&#101;&#46;&#99;&#97;</a> with explanation.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../changelog/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Release Notes">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Release Notes
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../license/" class="md-footer__link md-footer__link--next" aria-label="Next: License">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                License
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 - 2023 Daniel Moran
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.prune", "navigation.sections", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

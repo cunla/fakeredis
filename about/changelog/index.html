@@ -1,0 +1,4395 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Changelog of all fakeredis releases">
+      
+      
+        <meta name="author" content="Daniel Moran">
+      
+      
+      
+        <link rel="prev" href="../../guides/test-case/">
+      
+      
+        <link rel="next" href="../contributing/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.48">
+    
+    
+      
+        <title>Change log - fakeredis</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-GJBJBKXT19"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-GJBJBKXT19",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-GJBJBKXT19",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+<meta name="google-adsense-account" content="ca-pub-2802331499006697">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2802331499006697"
+        crossorigin="anonymous"></script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#v2262" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="fakeredis" class="md-header__button md-logo" aria-label="fakeredis" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            fakeredis
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Change log
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cunla/fakeredis" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cunla/fakeredis
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="fakeredis" class="md-nav__button md-logo" aria-label="fakeredis" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    fakeredis
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cunla/fakeredis" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cunla/fakeredis
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redis-stack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Redis stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dragonfly-support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dragonfly support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../valkey-support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Valkey support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../supported-commands/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Supported commands
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Supported commands
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../supported-commands/Redis/BITMAP/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Redis commands
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supported-commands/RedisJson/JSON/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RedisJSON commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supported-commands/RedisTimeSeries/TIMESERIES/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Time Series commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../supported-commands/RedisBloom/BF/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Probabilistic commands
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supported-commands/RedisSearch/SEARCH/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Search commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supported-commands/RedisSearch/SUGGESTION/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suggestion commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supported-commands/DRAGONFLY/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dragonfly commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Guides
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/implement-command/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implementing support for a command
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/test-case/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Write a new test case
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            About
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+    <a href="#v2262" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.26.2
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.26.2">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2261" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.26.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.26.1">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2260" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.26.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.26.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2251" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.25.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.25.1">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2250" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.25.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.25.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2241" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.24.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.24.1">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2240" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.24.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.24.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2235" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.23.5
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.23.5">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2234" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.23.4
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.23.4">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2233" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.23.3
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.23.3">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2232" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.23.2
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.23.2">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2231" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.23.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.23.1">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2230" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.23.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.23.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2220" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.22.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.22.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2213" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.21.3
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.21.3">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2212" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.21.2
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.21.2">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2211" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.21.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.21.1">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2210" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.21.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.21.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2201" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.20.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.20.1">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2200" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.20.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.20.0">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2190" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.19.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.19.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2181" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.18.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.18.1">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2180" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.18.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.18.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2170" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.17.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.17.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2160" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.16.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.16.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2150" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.15.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.15.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2142" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.14.2
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.14.2">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2141" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.14.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.14.1">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2140" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.14.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.14.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2130" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.13.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.13.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2121" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.12.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.12.1">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2120" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.12.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.12.0">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2112" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.11.2
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.11.2">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2111" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.11.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.11.1">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2110" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.11.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.11.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2103" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.10.3
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.10.3">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2102" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.10.2
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.10.2">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2101" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.10.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.10.1">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2100" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.10.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.10.0">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v292" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.9.2
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.9.2">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v291" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.9.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.9.1">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v290" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.9.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.9.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v280" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.8.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.8.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v271" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.7.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.7.1">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v270" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.7.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.7.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v260" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.6.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.6.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v250" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.5.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.5.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v240" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.4.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.4.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v230" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.3.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.3.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v220" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.2.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.2.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v210" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.1.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.1.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v200" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.0.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.0.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v1101" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.10.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.10.1">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v1100" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.10.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.10.0">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v194" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.9.4
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.9.4">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v193" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.9.3
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.9.3">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v192" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.9.2
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.9.2">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v191" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.9.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.9.1">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v190" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.9.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.9.0">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v182" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.8.2
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.8.2">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v181" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.8.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.8.1">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v18" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.8
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.8">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v176" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.7.6
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.7.6">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v175" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.7.5
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.7.5">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v174" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.7.4
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.7.4">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+    <a href="#v2262" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.26.2
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.26.2">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2261" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.26.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.26.1">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2260" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.26.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.26.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2251" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.25.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.25.1">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2250" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.25.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.25.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2241" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.24.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.24.1">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2240" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.24.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.24.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2235" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.23.5
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.23.5">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2234" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.23.4
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.23.4">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2233" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.23.3
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.23.3">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2232" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.23.2
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.23.2">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2231" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.23.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.23.1">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2230" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.23.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.23.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2220" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.22.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.22.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2213" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.21.3
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.21.3">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2212" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.21.2
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.21.2">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2211" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.21.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.21.1">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2210" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.21.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.21.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2201" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.20.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.20.1">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2200" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.20.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.20.0">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2190" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.19.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.19.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2181" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.18.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.18.1">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2180" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.18.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.18.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2170" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.17.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.17.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2160" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.16.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.16.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2150" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.15.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.15.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2142" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.14.2
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.14.2">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2141" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.14.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.14.1">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2140" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.14.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.14.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2130" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.13.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.13.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2121" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.12.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.12.1">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2120" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.12.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.12.0">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2112" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.11.2
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.11.2">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2111" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.11.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.11.1">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2110" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.11.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.11.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2103" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.10.3
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.10.3">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2102" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.10.2
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.10.2">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2101" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.10.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.10.1">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v2100" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.10.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.10.0">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v292" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.9.2
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.9.2">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v291" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.9.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.9.1">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v290" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.9.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.9.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v280" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.8.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.8.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v271" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.7.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.7.1">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v270" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.7.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.7.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v260" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.6.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.6.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v250" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.5.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.5.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v240" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.4.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.4.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v230" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.3.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.3.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v220" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.2.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.2.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v210" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.1.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.1.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v200" class="md-nav__link">
+      <span class="md-ellipsis">
+        v2.0.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v2.0.0">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v1101" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.10.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.10.1">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v1100" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.10.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.10.0">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v194" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.9.4
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.9.4">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v193" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.9.3
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.9.3">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v192" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.9.2
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.9.2">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v191" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.9.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.9.1">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v190" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.9.0
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.9.0">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v182" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.8.2
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.8.2">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v181" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.8.1
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.8.1">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v18" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.8
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.8">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v176" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.7.6
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.7.6">
+        <ul class="md-nav__list">
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v175" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.7.5
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.7.5">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#v174" class="md-nav__link">
+      <span class="md-ellipsis">
+        v1.7.4
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="v1.7.4">
+        <ul class="md-nav__list">
+            
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/cunla/fakeredis/edit/master/docs/about/changelog.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/cunla/fakeredis/raw/master/docs/about/changelog.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+  <h1>Release Notes</h1>
+
+<h2 id="v2262">v2.26.2<a class="headerlink" href="#v2262" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix bug in <code>xreadgroup</code> when stream length is less than COUNT with BLOCK <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/344" title="GitHub Issue: cunla/fakeredis #344">#344</a></li>
+</ul>
+<h3 id="maintenance">🧰 Maintenance<a class="headerlink" href="#maintenance" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Implement test for <code>SADDEX</code> (Dragonfly specific command) <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/348" title="GitHub Issue: cunla/fakeredis #348">#348</a></li>
+<li>Update dependencies</li>
+</ul>
+<h2 id="v2261">v2.26.1<a class="headerlink" href="#v2261" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_1">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Minor fix: using typing_extensions instead of typing for python 3.7 support <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/341" title="GitHub Issue: cunla/fakeredis #341">#341</a>/<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/343" title="GitHub Issue: cunla/fakeredis #343">#343</a></li>
+</ul>
+<h2 id="v2260">v2.26.0<a class="headerlink" href="#v2260" title="Permanent link">&para;</a></h2>
+<h3 id="features">🚀 Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Support for server-type specific commands <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/340" title="GitHub Issue: cunla/fakeredis #340">#340</a></li>
+<li>Support for Dragonfly <code>SADDEX</code> command <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/340" title="GitHub Issue: cunla/fakeredis #340">#340</a></li>
+</ul>
+<h3 id="bug-fixes_2">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix bug in bitpos function for the clear bit mode <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/Diskein" title="GitHub User: Diskein">@Diskein</a> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/337" title="GitHub Issue: cunla/fakeredis #337">#337</a></li>
+</ul>
+<h2 id="v2251">v2.25.1<a class="headerlink" href="#v2251" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_3">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix missing default values for version/server_type in <code>FakeBaseConnectionMixin</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/334" title="GitHub Issue: cunla/fakeredis #334">#334</a></li>
+</ul>
+<h2 id="v2250">v2.25.0<a class="headerlink" href="#v2250" title="Permanent link">&para;</a></h2>
+<h3 id="features_1">🚀 Features<a class="headerlink" href="#features_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Implement support for hash expiration related commands <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/j00bar" title="GitHub User: j00bar">@j00bar</a> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/328" title="GitHub Issue: cunla/fakeredis #328">#328</a><ul>
+<li><code>HEXPIRE</code>, <code>HEXPIREAT</code>, <code>HEXPIRETIME</code>, <code>HPERSIST</code>, <code>HPEXPIRE</code>, <code>HPEXPIREAT</code>, <code>HPEXPIRETIME</code>, <code>HPTTL</code>, <code>HTTL</code>,</li>
+</ul>
+</li>
+<li>Implement support for <code>SORT_RO</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/325" title="GitHub Issue: cunla/fakeredis #325">#325</a>, <code>EXPIRETIME</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/323" title="GitHub Issue: cunla/fakeredis #323">#323</a>, and <code>PEXPIRETIME</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/324" title="GitHub Issue: cunla/fakeredis #324">#324</a></li>
+<li>Support for creating a tcp server listening to multiple clients</li>
+<li>Testing against valkey 8.0 <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/333" title="GitHub Issue: cunla/fakeredis #333">#333</a></li>
+<li>Improve documentation <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/332" title="GitHub Issue: cunla/fakeredis #332">#332</a></li>
+</ul>
+<h3 id="bug-fixes_4">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Replace <code>typing_extensions</code> dependency with <code>typing-extensions</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/330" title="GitHub Issue: cunla/fakeredis #330">#330</a></li>
+</ul>
+<h2 id="v2241">v2.24.1<a class="headerlink" href="#v2241" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_5">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix license file added to site-packages <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/320" title="GitHub Issue: cunla/fakeredis #320">#320</a></li>
+</ul>
+<h2 id="v2240">v2.24.0<a class="headerlink" href="#v2240" title="Permanent link">&para;</a></h2>
+<h3 id="features_2">🚀 Features<a class="headerlink" href="#features_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Support for TIME SERIES commands (no support for align arguments on some commands) <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/310" title="GitHub Issue: cunla/fakeredis #310">#310</a></li>
+</ul>
+<h3 id="bug-fixes_6">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>fix:xrevrange to work with exclusive ranges <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/hurlenko" title="GitHub User: hurlenko">@hurlenko</a> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/319" title="GitHub Issue: cunla/fakeredis #319">#319</a></li>
+</ul>
+<h3 id="maintenance_1">🧰 Maintenance<a class="headerlink" href="#maintenance_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Update all dependencies, particularly pytest to v8</li>
+<li>Add tests against Dragonfly server <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/318" title="GitHub Issue: cunla/fakeredis #318">#318</a></li>
+<li>Implement decocator <code>unsupported_server_types</code> to enable excluding tests from running against certain server types
+  <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/318" title="GitHub Issue: cunla/fakeredis #318">#318</a></li>
+</ul>
+<h2 id="v2235">v2.23.5<a class="headerlink" href="#v2235" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_7">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>fix:issue with async connection and blocking operations writing responses twice to socket <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/316" title="GitHub Issue: cunla/fakeredis #316">#316</a></li>
+</ul>
+<h2 id="v2234">v2.23.4<a class="headerlink" href="#v2234" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_8">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>fix:move random seed to HeavyKeeper to avoid issues <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/315" title="GitHub Issue: cunla/fakeredis #315">#315</a></li>
+</ul>
+<h3 id="maintenance_2">🧰 Maintenance<a class="headerlink" href="#maintenance_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Documented how to use fakeredis with FastAPI. @ sjjessop <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/292" title="GitHub Issue: cunla/fakeredis #292">#292</a></li>
+<li>Using black for linting python code.</li>
+</ul>
+<h2 id="v2233">v2.23.3<a class="headerlink" href="#v2233" title="Permanent link">&para;</a></h2>
+<h3 id="maintenance_3">🧰 Maintenance<a class="headerlink" href="#maintenance_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>docs: Full code for FastAPI integration (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/312" title="GitHub Issue: cunla/fakeredis #312">#312</a>)</li>
+</ul>
+<h3 id="bug-fixes_9">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix ttl for empty stream <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/313" title="GitHub Issue: cunla/fakeredis #313">#313</a></li>
+</ul>
+<h2 id="v2232">v2.23.2<a class="headerlink" href="#v2232" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_10">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix reading multiple streams with blocking <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/309" title="GitHub Issue: cunla/fakeredis #309">#309</a></li>
+</ul>
+<h2 id="v2231">v2.23.1<a class="headerlink" href="#v2231" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_11">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix <code>XREAD</code> behavior when <code>COUNT</code> is not provided but <code>BLOCKING</code> is provided <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/308" title="GitHub Issue: cunla/fakeredis #308">#308</a></li>
+</ul>
+<h2 id="v2230">v2.23.0<a class="headerlink" href="#v2230" title="Permanent link">&para;</a></h2>
+<h3 id="features_3">🚀 Features<a class="headerlink" href="#features_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Support for TDigest
+  commands: <code>TDIGEST.ADD</code>,<code>TDIGEST.BYRANK</code>,<code>TDIGEST.BYREVRANK</code>,<code>TDIGEST.CDF</code>, <code>TDIGEST.CREATE</code>, <code>TDIGEST.INFO</code>,
+  <code>TDIGEST.MAX</code>, <code>TDIGEST.MERGE</code>, <code>TDIGEST.MIN</code>, <code>TDIGEST.QUANTILE</code>, <code>TDIGEST.RANK</code>, <code>TDIGEST.RESET</code>, <code>TDIGEST.REVRANK</code>,
+  <code>TDIGEST.TRIMMED_MEAN</code>.</li>
+</ul>
+<h3 id="bug-fixes_12">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Import <code>Self</code> from typing vs. typing_extension</li>
+</ul>
+<h3 id="maintenance_4">🧰 Maintenance<a class="headerlink" href="#maintenance_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Update dependencies</li>
+<li>Add redis-py 5.0.4 to tests</li>
+<li>Update lupa version constraint <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/306" title="GitHub Issue: cunla/fakeredis #306">#306</a> <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/noamkush" title="GitHub User: noamkush">@noamkush</a></li>
+</ul>
+<h2 id="v2220">v2.22.0<a class="headerlink" href="#v2220" title="Permanent link">&para;</a></h2>
+<h3 id="features_4">🚀 Features<a class="headerlink" href="#features_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Support for setting LUA version from environment variable  <code>FAKEREDIS_LUA_VERSION</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/287" title="GitHub Issue: cunla/fakeredis #287">#287</a></li>
+<li>Support for loading LUA binary modules in fakeredis <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/304" title="GitHub Issue: cunla/fakeredis #304">#304</a></li>
+</ul>
+<h3 id="bug-fixes_13">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix the type hint for the version parameter in the async client <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/302" title="GitHub Issue: cunla/fakeredis #302">#302</a></li>
+<li>Using LUA 5.1 like real redis <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/287" title="GitHub Issue: cunla/fakeredis #287">#287</a></li>
+<li>fix: FakeRedisMixin.from_url() return type is really Self. <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/ben-xo" title="GitHub User: ben-xo">@ben-xo</a> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/305" title="GitHub Issue: cunla/fakeredis #305">#305</a></li>
+</ul>
+<h2 id="v2213">v2.21.3<a class="headerlink" href="#v2213" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_14">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_14" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Revert behavior of defaulting to share the same server data structure between connections <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/howamith" title="GitHub User: howamith">@howamith</a> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/303" title="GitHub Issue: cunla/fakeredis #303">#303</a></li>
+<li>Fix type hint for version <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/302" title="GitHub Issue: cunla/fakeredis #302">#302</a></li>
+</ul>
+<h2 id="v2212">v2.21.2<a class="headerlink" href="#v2212" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Note: Since connection params are defaulted to be the same between async and sync connections, different FakeRedis
+connections with the same connection params (or without connection parameters) will share the same server data
+structure.</p>
+</blockquote>
+<h3 id="bug-fixes_15">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_15" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Connection params are defaulted to be the same between async and sync connections <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/297" title="GitHub Issue: cunla/fakeredis #297">#297</a></li>
+<li><code>xinfo_stream</code> raises exception when stream does not exist <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/296" title="GitHub Issue: cunla/fakeredis #296">#296</a></li>
+</ul>
+<h2 id="v2211">v2.21.1<a class="headerlink" href="#v2211" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_16">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_16" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Support for float timeout values <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/289" title="GitHub Issue: cunla/fakeredis #289">#289</a></li>
+</ul>
+<h3 id="maintenance_5">🧰 Maintenance<a class="headerlink" href="#maintenance_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix django cache documentation <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/286" title="GitHub Issue: cunla/fakeredis #286">#286</a></li>
+</ul>
+<h2 id="v2210">v2.21.0<a class="headerlink" href="#v2210" title="Permanent link">&para;</a></h2>
+<h3 id="features_5">🚀 Features<a class="headerlink" href="#features_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Implement all TOP-K commands (<code>TOPK.INFO</code>, <code>TOPK.LIST</code>, <code>TOPK.RESERVE</code>,
+  <code>TOPK.ADD</code>, <code>TOPK.COUNT</code>, <code>TOPK.QUERY</code>, <code>TOPK.INCRBY</code>) <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/278" title="GitHub Issue: cunla/fakeredis #278">#278</a></li>
+<li>Implement all cuckoo filter commands <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/276" title="GitHub Issue: cunla/fakeredis #276">#276</a></li>
+<li>Implement all Count-Min Sketch commands <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/277" title="GitHub Issue: cunla/fakeredis #277">#277</a></li>
+</ul>
+<h3 id="bug-fixes_17">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_17" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix XREAD blocking bug <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/274" title="GitHub Issue: cunla/fakeredis #274">#274</a> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/275" title="GitHub Issue: cunla/fakeredis #275">#275</a></li>
+<li>EXAT option does not work <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/279" title="GitHub Issue: cunla/fakeredis #279">#279</a></li>
+</ul>
+<h3 id="maintenance_6">🧰 Maintenance<a class="headerlink" href="#maintenance_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Support for redis-py 5.1.0b3</li>
+<li>Improve <code>@testtools.run_test_if_redispy_ver</code></li>
+<li>Refactor bloom filter commands implementation to use <a href="https://github.com/barrust/pyprobables">pyprobables</a> instead of
+  pybloom_live</li>
+</ul>
+<h2 id="v2201">v2.20.1<a class="headerlink" href="#v2201" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_18">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_18" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix <code>XREAD</code> bug <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/256" title="GitHub Issue: cunla/fakeredis #256">#256</a></li>
+</ul>
+<h3 id="maintenance_7">🧰 Maintenance<a class="headerlink" href="#maintenance_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Testing for python 3.12</li>
+<li>Dependencies update</li>
+</ul>
+<h2 id="v2200">v2.20.0<a class="headerlink" href="#v2200" title="Permanent link">&para;</a></h2>
+<h3 id="features_6">🚀 Features<a class="headerlink" href="#features_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Implement <code>BITFIELD</code> command <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/247" title="GitHub Issue: cunla/fakeredis #247">#247</a></li>
+<li>Implement <code>COMMAND</code>, <code>COMMAND INFO</code>, <code>COMMAND COUNT</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/248" title="GitHub Issue: cunla/fakeredis #248">#248</a></li>
+</ul>
+<h2 id="v2190">v2.19.0<a class="headerlink" href="#v2190" title="Permanent link">&para;</a></h2>
+<h3 id="features_7">🚀 Features<a class="headerlink" href="#features_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Implement Bloom filters commands <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/239" title="GitHub Issue: cunla/fakeredis #239">#239</a></li>
+</ul>
+<h3 id="bug-fixes_19">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_19" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix error on blocking XREADGROUP <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/237" title="GitHub Issue: cunla/fakeredis #237">#237</a></li>
+</ul>
+<h2 id="v2181">v2.18.1<a class="headerlink" href="#v2181" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_20">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_20" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix stream type issue <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/233" title="GitHub Issue: cunla/fakeredis #233">#233</a></li>
+</ul>
+<h3 id="maintenance_8">🧰 Maintenance<a class="headerlink" href="#maintenance_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Add mypy hints to everything</li>
+<li>Officially for redis-py 5.0.0, redis 7.2</li>
+</ul>
+<h2 id="v2180">v2.18.0<a class="headerlink" href="#v2180" title="Permanent link">&para;</a></h2>
+<h3 id="features_8">🚀 Features<a class="headerlink" href="#features_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Implement <code>PUBSUB NUMPAT</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/195" title="GitHub Issue: cunla/fakeredis #195">#195</a>, <code>SSUBSCRIBE</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/199" title="GitHub Issue: cunla/fakeredis #199">#199</a>, <code>SPUBLISH</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/198" title="GitHub Issue: cunla/fakeredis #198">#198</a>,
+  <code>SUNSUBSCRIBE</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/200" title="GitHub Issue: cunla/fakeredis #200">#200</a>, <code>PUBSUB SHARDCHANNELS</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/196" title="GitHub Issue: cunla/fakeredis #196">#196</a>, <code>PUBSUB SHARDNUMSUB</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/197" title="GitHub Issue: cunla/fakeredis #197">#197</a></li>
+</ul>
+<h3 id="bug-fixes_21">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_21" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix All aio.FakeRedis instances share the same server <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/218" title="GitHub Issue: cunla/fakeredis #218">#218</a></li>
+</ul>
+<h2 id="v2170">v2.17.0<a class="headerlink" href="#v2170" title="Permanent link">&para;</a></h2>
+<h3 id="features_9">🚀 Features<a class="headerlink" href="#features_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Implement <code>LPOS</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/207" title="GitHub Issue: cunla/fakeredis #207">#207</a>, <code>LMPOP</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/184" title="GitHub Issue: cunla/fakeredis #184">#184</a>, and <code>BLMPOP</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/183" title="GitHub Issue: cunla/fakeredis #183">#183</a></li>
+<li>Implement <code>ZMPOP</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/191" title="GitHub Issue: cunla/fakeredis #191">#191</a>, <code>BZMPOP</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/186" title="GitHub Issue: cunla/fakeredis #186">#186</a></li>
+</ul>
+<h3 id="bug-fixes_22">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_22" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix incorrect error msg for the group not found <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/210" title="GitHub Issue: cunla/fakeredis #210">#210</a></li>
+<li>fix: use the same server_key within the pipeline when issued watch <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/213" title="GitHub Issue: cunla/fakeredis #213">#213</a></li>
+<li>issue with ZRANGE and ZRANGESTORE with BYLEX <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/214" title="GitHub Issue: cunla/fakeredis #214">#214</a></li>
+</ul>
+<h3 id="contributors">Contributors<a class="headerlink" href="#contributors" title="Permanent link">&para;</a></h3>
+<p>We'd like to thank all the contributors who worked on this release!</p>
+<p><a class="magiclink magiclink-github magiclink-mention" href="https://github.com/OlegZv" title="GitHub User: OlegZv">@OlegZv</a>, <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/sjjessop" title="GitHub User: sjjessop">@sjjessop</a></p>
+<h2 id="v2160">v2.16.0<a class="headerlink" href="#v2160" title="Permanent link">&para;</a></h2>
+<h3 id="features_10">🚀 Features<a class="headerlink" href="#features_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Implemented support for <code>JSON.MSET</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/174" title="GitHub Issue: cunla/fakeredis #174">#174</a>, <code>JSON.MERGE</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/181" title="GitHub Issue: cunla/fakeredis #181">#181</a></li>
+</ul>
+<h3 id="bug-fixes_23">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_23" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Add support for <code>version</code> for async FakeRedis <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/205" title="GitHub Issue: cunla/fakeredis #205">#205</a></li>
+</ul>
+<h3 id="maintenance_9">🧰 Maintenance<a class="headerlink" href="#maintenance_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Updated how to test django_rq <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/204" title="GitHub Issue: cunla/fakeredis #204">#204</a></li>
+</ul>
+<h2 id="v2150">v2.15.0<a class="headerlink" href="#v2150" title="Permanent link">&para;</a></h2>
+<h3 id="features_11">🚀 Features<a class="headerlink" href="#features_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Implemented support for various stream groups commands:<ul>
+<li><code>XGROUP CREATE</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/161" title="GitHub Issue: cunla/fakeredis #161">#161</a>, <code>XGROUP DESTROY</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/164" title="GitHub Issue: cunla/fakeredis #164">#164</a>, <code>XGROUP SETID</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/165" title="GitHub Issue: cunla/fakeredis #165">#165</a>, <code>XGROUP DELCONSUMER</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/162" title="GitHub Issue: cunla/fakeredis #162">#162</a>,
+  <code>XGROUP CREATECONSUMER</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/163" title="GitHub Issue: cunla/fakeredis #163">#163</a>, <code>XINFO GROUPS</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/168" title="GitHub Issue: cunla/fakeredis #168">#168</a>, <code>XINFO CONSUMERS</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/168" title="GitHub Issue: cunla/fakeredis #168">#168</a>, <code>XINFO STREAM</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/169" title="GitHub Issue: cunla/fakeredis #169">#169</a>, <code>XREADGROUP</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/171" title="GitHub Issue: cunla/fakeredis #171">#171</a>,
+  <code>XACK</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/157" title="GitHub Issue: cunla/fakeredis #157">#157</a>, <code>XPENDING</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/170" title="GitHub Issue: cunla/fakeredis #170">#170</a>, <code>XCLAIM</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/159" title="GitHub Issue: cunla/fakeredis #159">#159</a>, <code>XAUTOCLAIM</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/158" title="GitHub Issue: cunla/fakeredis #158">#158</a></li>
+</ul>
+</li>
+<li>Implemented sorted set commands:<ul>
+<li><code>ZRANDMEMBER</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/192" title="GitHub Issue: cunla/fakeredis #192">#192</a>, <code>ZDIFF</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/187" title="GitHub Issue: cunla/fakeredis #187">#187</a>, <code>ZINTER</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/189" title="GitHub Issue: cunla/fakeredis #189">#189</a>, <code>ZUNION</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/194" title="GitHub Issue: cunla/fakeredis #194">#194</a>, <code>ZDIFFSTORE</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/188" title="GitHub Issue: cunla/fakeredis #188">#188</a>,
+  <code>ZINTERCARD</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/190" title="GitHub Issue: cunla/fakeredis #190">#190</a>, <code>ZRANGESTORE</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/193" title="GitHub Issue: cunla/fakeredis #193">#193</a></li>
+</ul>
+</li>
+<li>Implemented list commands:<ul>
+<li><code>BLMOVE</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/182" title="GitHub Issue: cunla/fakeredis #182">#182</a>,</li>
+</ul>
+</li>
+</ul>
+<h3 id="maintenance_10">🧰 Maintenance<a class="headerlink" href="#maintenance_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Improved documentation.</li>
+</ul>
+<h2 id="v2142">v2.14.2<a class="headerlink" href="#v2142" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_24">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_24" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix documentation link</li>
+</ul>
+<h2 id="v2141">v2.14.1<a class="headerlink" href="#v2141" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_25">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_25" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix requirement for packaging.Version <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/177" title="GitHub Issue: cunla/fakeredis #177">#177</a></li>
+</ul>
+<h2 id="v2140">v2.14.0<a class="headerlink" href="#v2140" title="Permanent link">&para;</a></h2>
+<h3 id="features_12">🚀 Features<a class="headerlink" href="#features_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Implement <code>HRANDFIELD</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/156" title="GitHub Issue: cunla/fakeredis #156">#156</a></li>
+<li>Implement <code>JSON.MSET</code></li>
+</ul>
+<h3 id="maintenance_11">🧰 Maintenance<a class="headerlink" href="#maintenance_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Improve streams code</li>
+</ul>
+<h2 id="v2130">v2.13.0<a class="headerlink" href="#v2130" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_26">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_26" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fixed xadd timestamp (fixes <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/151" title="GitHub Issue: cunla/fakeredis #151">#151</a>) (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/152" title="GitHub Issue: cunla/fakeredis #152">#152</a>)</li>
+<li>Implement XDEL <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/153" title="GitHub Issue: cunla/fakeredis #153">#153</a></li>
+</ul>
+<h3 id="maintenance_12">🧰 Maintenance<a class="headerlink" href="#maintenance_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Improve test code</li>
+<li>Fix reported security issue</li>
+</ul>
+<h2 id="v2121">v2.12.1<a class="headerlink" href="#v2121" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_27">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_27" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Add support for <code>Connection.read_response</code> arguments used in redis-py 4.5.5 and 5.0.0</li>
+<li>Adding state for scan commands (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/99" title="GitHub Issue: cunla/fakeredis #99">#99</a>)</li>
+</ul>
+<h3 id="maintenance_13">🧰 Maintenance<a class="headerlink" href="#maintenance_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Improved documentation (added async sample, etc.)</li>
+<li>Add redis-py 5.0.0b3 to GitHub workflow</li>
+</ul>
+<h2 id="v2120">v2.12.0<a class="headerlink" href="#v2120" title="Permanent link">&para;</a></h2>
+<h3 id="features_13">🚀 Features<a class="headerlink" href="#features_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Implement <code>XREAD</code> <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/147" title="GitHub Issue: cunla/fakeredis #147">#147</a></li>
+</ul>
+<h2 id="v2112">v2.11.2<a class="headerlink" href="#v2112" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_28">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_28" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Unique FakeServer when no connection params are provided (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/142" title="GitHub Issue: cunla/fakeredis #142">#142</a>)</li>
+</ul>
+<h2 id="v2111">v2.11.1<a class="headerlink" href="#v2111" title="Permanent link">&para;</a></h2>
+<h3 id="maintenance_14">🧰 Maintenance<a class="headerlink" href="#maintenance_14" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Minor fixes supporting multiple connections</li>
+<li>Update documentation</li>
+</ul>
+<h2 id="v2110">v2.11.0<a class="headerlink" href="#v2110" title="Permanent link">&para;</a></h2>
+<h3 id="features_14">🚀 Features<a class="headerlink" href="#features_14" title="Permanent link">&para;</a></h3>
+<ul>
+<li>connection parameters awareness:
+  Creating multiple clients with the same connection parameters will result in
+  the same server data structure.</li>
+</ul>
+<h3 id="bug-fixes_29">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_29" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix creating fakeredis.aioredis using url with user/password (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/139" title="GitHub Issue: cunla/fakeredis #139">#139</a>)</li>
+</ul>
+<h2 id="v2103">v2.10.3<a class="headerlink" href="#v2103" title="Permanent link">&para;</a></h2>
+<h3 id="maintenance_15">🧰 Maintenance<a class="headerlink" href="#maintenance_15" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Support for redis-py 5.0.0b1</li>
+<li>Include tests in sdist (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/133" title="GitHub Issue: cunla/fakeredis #133">#133</a>)</li>
+</ul>
+<h3 id="bug-fixes_30">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_30" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix import used in GenericCommandsMixin.randomkey (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/135" title="GitHub Issue: cunla/fakeredis #135">#135</a>)</li>
+</ul>
+<h2 id="v2102">v2.10.2<a class="headerlink" href="#v2102" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_31">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_31" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix async_timeout usage on py3.11 (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/132" title="GitHub Issue: cunla/fakeredis #132">#132</a>)</li>
+</ul>
+<h2 id="v2101">v2.10.1<a class="headerlink" href="#v2101" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_32">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_32" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Enable testing django-cache using <code>FakeConnection</code>.</li>
+</ul>
+<h2 id="v2100">v2.10.0<a class="headerlink" href="#v2100" title="Permanent link">&para;</a></h2>
+<h3 id="features_15">🚀 Features<a class="headerlink" href="#features_15" title="Permanent link">&para;</a></h3>
+<ul>
+<li>All geo commands implemented</li>
+</ul>
+<h2 id="v292">v2.9.2<a class="headerlink" href="#v292" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_33">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_33" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix bug for <code>xrange</code></li>
+</ul>
+<h2 id="v291">v2.9.1<a class="headerlink" href="#v291" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_34">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_34" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix bug for <code>xrevrange</code></li>
+</ul>
+<h2 id="v290">v2.9.0<a class="headerlink" href="#v290" title="Permanent link">&para;</a></h2>
+<h3 id="features_16">🚀 Features<a class="headerlink" href="#features_16" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Implement <code>XTRIM</code></li>
+<li>Add support for <code>MAXLEN</code>, <code>MAXID</code>, <code>LIMIT</code> arguments for <code>XADD</code> command</li>
+<li>Add support for <code>ZRANGE</code> arguments for <code>ZRANGE</code> command <a href="https://github.com/cunla/fakeredis-py/issues/127">#127</a></li>
+</ul>
+<h3 id="maintenance_16">🧰 Maintenance<a class="headerlink" href="#maintenance_16" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Relax python version requirement <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/128" title="GitHub Issue: cunla/fakeredis #128">#128</a></li>
+</ul>
+<h2 id="v280">v2.8.0<a class="headerlink" href="#v280" title="Permanent link">&para;</a></h2>
+<h3 id="features_17">🚀 Features<a class="headerlink" href="#features_17" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Support for redis-py 4.5.0 <a href="https://github.com/cunla/fakeredis-py/issues/125">#125</a></li>
+</ul>
+<h3 id="bug-fixes_35">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_35" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix import error for redis-py v3+ <a href="https://github.com/cunla/fakeredis-py/issues/121">#121</a></li>
+</ul>
+<h2 id="v271">v2.7.1<a class="headerlink" href="#v271" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_36">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_36" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix import error for NoneType <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/527" title="GitHub Issue: cunla/fakeredis #527">#527</a></li>
+</ul>
+<h2 id="v270">v2.7.0<a class="headerlink" href="#v270" title="Permanent link">&para;</a></h2>
+<h3 id="features_18">🚀 Features<a class="headerlink" href="#features_18" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Implement <code>JSON.ARRINDEX</code>, <code>JSON.OBJLEN</code>, <code>JSON.OBJKEYS</code> ,
+  <code>JSON.ARRPOP</code>, <code>JSON.ARRTRIM</code>, <code>JSON.NUMINCRBY</code>, <code>JSON.NUMMULTBY</code>,
+  <code>XADD</code>, <code>XLEN</code>, <code>XRANGE</code>, <code>XREVRANGE</code></li>
+</ul>
+<h3 id="maintenance_17">🧰 Maintenance<a class="headerlink" href="#maintenance_17" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Improve json commands implementation.</li>
+<li>Improve commands documentation.</li>
+</ul>
+<h2 id="v260">v2.6.0<a class="headerlink" href="#v260" title="Permanent link">&para;</a></h2>
+<h3 id="features_19">🚀 Features<a class="headerlink" href="#features_19" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Implement <code>JSON.TYPE</code>, <code>JSON.ARRLEN</code> and <code>JSON.ARRAPPEND</code></li>
+</ul>
+<h3 id="bug-fixes_37">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_37" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix encoding of None (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/118" title="GitHub Issue: cunla/fakeredis #118">#118</a>)</li>
+</ul>
+<h3 id="maintenance_18">🧰 Maintenance<a class="headerlink" href="#maintenance_18" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Start skeleton for streams commands in <code>streams_mixin.py</code> and <code>test_streams_commands.py</code></li>
+<li>Start migrating documentation to <a href="https://fakeredis.readthedocs.io/">https://fakeredis.readthedocs.io/</a></li>
+</ul>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/cunla/fakeredis-py/compare/v2.5.0...v2.6.0">https://github.com/cunla/fakeredis-py/compare/v2.5.0...v2.6.0</a></p>
+<h2 id="v250">v2.5.0<a class="headerlink" href="#v250" title="Permanent link">&para;</a></h2>
+<h4 id="features_20">🚀 Features<a class="headerlink" href="#features_20" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Implement support for <code>BITPOS</code> (bitmap command) (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/112" title="GitHub Issue: cunla/fakeredis #112">#112</a>)</li>
+</ul>
+<h4 id="bug-fixes_38">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_38" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Fix json mget when dict is returned (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/114" title="GitHub Issue: cunla/fakeredis #114">#114</a>)</li>
+<li>fix: proper export (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/116" title="GitHub Issue: cunla/fakeredis #116">#116</a>)</li>
+</ul>
+<h4 id="maintenance_19">🧰 Maintenance<a class="headerlink" href="#maintenance_19" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Extract param handling (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/113" title="GitHub Issue: cunla/fakeredis #113">#113</a>)</li>
+</ul>
+<h4 id="contributors_1">Contributors<a class="headerlink" href="#contributors_1" title="Permanent link">&para;</a></h4>
+<p>We'd like to thank all the contributors who worked on this release!</p>
+<p><a class="magiclink magiclink-github magiclink-mention" href="https://github.com/Meemaw" title="GitHub User: Meemaw">@Meemaw</a>, <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/Pichlerdom" title="GitHub User: Pichlerdom">@Pichlerdom</a></p>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/cunla/fakeredis-py/compare/v2.4.0...v2.5.0">https://github.com/cunla/fakeredis-py/compare/v2.4.0...v2.5.0</a></p>
+<h2 id="v240">v2.4.0<a class="headerlink" href="#v240" title="Permanent link">&para;</a></h2>
+<h4 id="features_21">🚀 Features<a class="headerlink" href="#features_21" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Implement <code>LCS</code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/111" title="GitHub Issue: cunla/fakeredis #111">#111</a>), <code>BITOP</code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/110" title="GitHub Issue: cunla/fakeredis #110">#110</a>)</li>
+</ul>
+<h4 id="bug-fixes_39">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_39" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Fix a bug the checking type in scan_iter (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/109" title="GitHub Issue: cunla/fakeredis #109">#109</a>)</li>
+</ul>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/cunla/fakeredis-py/compare/v2.3.0...v2.4.0">https://github.com/cunla/fakeredis-py/compare/v2.3.0...v2.4.0</a></p>
+<h2 id="v230">v2.3.0<a class="headerlink" href="#v230" title="Permanent link">&para;</a></h2>
+<h4 id="features_22">🚀 Features<a class="headerlink" href="#features_22" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Implement <code>GETEX</code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/102" title="GitHub Issue: cunla/fakeredis #102">#102</a>)</li>
+<li>Implement support for <code>JSON.STRAPPEND</code> (json command) (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/98" title="GitHub Issue: cunla/fakeredis #98">#98</a>)</li>
+<li>Implement <code>JSON.STRLEN</code>, <code>JSON.TOGGLE</code> and fix bugs with <code>JSON.DEL</code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/96" title="GitHub Issue: cunla/fakeredis #96">#96</a>)</li>
+<li>Implement <code>PUBSUB CHANNELS</code>, <code>PUBSUB NUMSUB</code></li>
+</ul>
+<h4 id="bug-fixes_40">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_40" title="Permanent link">&para;</a></h4>
+<ul>
+<li>ZADD with XX \&amp; GT allows updates with lower scores (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/105" title="GitHub Issue: cunla/fakeredis #105">#105</a>)</li>
+</ul>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/cunla/fakeredis-py/compare/v2.2.0...v2.3.0">https://github.com/cunla/fakeredis-py/compare/v2.2.0...v2.3.0</a></p>
+<h2 id="v220">v2.2.0<a class="headerlink" href="#v220" title="Permanent link">&para;</a></h2>
+<h4 id="features_23">🚀 Features<a class="headerlink" href="#features_23" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Implement <code>JSON.CLEAR</code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/87" title="GitHub Issue: cunla/fakeredis #87">#87</a>)</li>
+<li>Support for <a href="https://github.com/redis/redis-py/releases/tag/v4.4.0">redis-py v4.4.0</a></li>
+</ul>
+<h4 id="maintenance_20">🧰 Maintenance<a class="headerlink" href="#maintenance_20" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Implement script to create issues for missing commands</li>
+<li>Remove checking for deprecated redis-py versions in tests</li>
+</ul>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/cunla/fakeredis-py/compare/v2.1.0...v2.2.0">https://github.com/cunla/fakeredis-py/compare/v2.1.0...v2.2.0</a></p>
+<h2 id="v210">v2.1.0<a class="headerlink" href="#v210" title="Permanent link">&para;</a></h2>
+<h4 id="features_24">🚀 Features<a class="headerlink" href="#features_24" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Implement json.mget (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/85" title="GitHub Issue: cunla/fakeredis #85">#85</a>)</li>
+<li>Initial json module support - <code>JSON.GET</code>, <code>JSON.SET</code> and <code>JSON.DEL</code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/80" title="GitHub Issue: cunla/fakeredis #80">#80</a>)</li>
+</ul>
+<h4 id="bug-fixes_41">🐛 Bug Fixes<a class="headerlink" href="#bug-fixes_41" title="Permanent link">&para;</a></h4>
+<ul>
+<li>fix: add nowait for asyncio disconnect (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/76" title="GitHub Issue: cunla/fakeredis #76">#76</a>)</li>
+</ul>
+<h4 id="maintenance_21">🧰 Maintenance<a class="headerlink" href="#maintenance_21" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Refactor how commands are registered (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/79" title="GitHub Issue: cunla/fakeredis #79">#79</a>)</li>
+<li>Refactor tests from redispy4_plus (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/77" title="GitHub Issue: cunla/fakeredis #77">#77</a>)</li>
+</ul>
+<h4 id="contributors_2">Contributors<a class="headerlink" href="#contributors_2" title="Permanent link">&para;</a></h4>
+<p>We'd like to thank all the contributors who worked on this release!</p>
+<p><a class="magiclink magiclink-github magiclink-mention" href="https://github.com/hyeongguen-song" title="GitHub User: hyeongguen-song">@hyeongguen-song</a>, <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/the-wondersmith" title="GitHub User: the-wondersmith">@the-wondersmith</a></p>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/cunla/fakeredis-py/compare/v2.0.0...v2.1.0">https://github.com/cunla/fakeredis-py/compare/v2.0.0...v2.1.0</a></p>
+<h2 id="v200">v2.0.0<a class="headerlink" href="#v200" title="Permanent link">&para;</a></h2>
+<h4 id="breaking-changes">🚀 Breaking changes<a class="headerlink" href="#breaking-changes" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Remove support for aioredis separate from redis-py (redis-py versions 4.1.2 and below). (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/65" title="GitHub Issue: cunla/fakeredis #65">#65</a>)</li>
+</ul>
+<h4 id="features_25">🚀 Features<a class="headerlink" href="#features_25" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Add support for redis-py v4.4rc4 (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/73" title="GitHub Issue: cunla/fakeredis #73">#73</a>)</li>
+<li>Add mypy support (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/74" title="GitHub Issue: cunla/fakeredis #74">#74</a>)</li>
+</ul>
+<h4 id="maintenance_22">🧰 Maintenance<a class="headerlink" href="#maintenance_22" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Separate commands to mixins (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/71" title="GitHub Issue: cunla/fakeredis #71">#71</a>)</li>
+<li>Use release-drafter</li>
+<li>Update GitHub workflows</li>
+</ul>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/cunla/fakeredis-py/compare/v1.10.1...v2.0.0">https://github.com/cunla/fakeredis-py/compare/v1.10.1...v2.0.0</a></p>
+<h2 id="v1101">v1.10.1<a class="headerlink" href="#v1101" title="Permanent link">&para;</a></h2>
+<h4 id="whats-changed">What's Changed<a class="headerlink" href="#whats-changed" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Implement support for <code>zmscore</code> by <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/the-wondersmith" title="GitHub User: the-wondersmith">@the-wondersmith</a> in <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/67" title="GitHub Issue: cunla/fakeredis #67">#67</a></li>
+</ul>
+<h4 id="new-contributors">New Contributors<a class="headerlink" href="#new-contributors" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a class="magiclink magiclink-github magiclink-mention" href="https://github.com/the-wondersmith" title="GitHub User: the-wondersmith">@the-wondersmith</a> made their first contribution in <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/67" title="GitHub Issue: cunla/fakeredis #67">#67</a></li>
+</ul>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/cunla/fakeredis-py/compare/v1.10.0...v1.10.1">https://github.com/cunla/fakeredis-py/compare/v1.10.0...v1.10.1</a></p>
+<h2 id="v1100">v1.10.0<a class="headerlink" href="#v1100" title="Permanent link">&para;</a></h2>
+<h4 id="whats-changed_1">What's Changed<a class="headerlink" href="#whats-changed_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>implement <code>GETDEL</code> and <code>SINTERCARD</code> support in <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/57" title="GitHub Issue: cunla/fakeredis #57">#57</a></li>
+<li>Test get float-type behavior in <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/59" title="GitHub Issue: cunla/fakeredis #59">#59</a></li>
+<li>Implement <code>BZPOPMIN</code>/<code>BZPOPMAX</code> support in <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/60" title="GitHub Issue: cunla/fakeredis #60">#60</a></li>
+</ul>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/cunla/fakeredis-py/compare/v1.9.4...v1.10.0">https://github.com/cunla/fakeredis-py/compare/v1.9.4...v1.10.0</a></p>
+<h2 id="v194">v1.9.4<a class="headerlink" href="#v194" title="Permanent link">&para;</a></h2>
+<h3 id="whats-changed_2">What's Changed<a class="headerlink" href="#whats-changed_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Separate LUA support to a different file in <a href="https://github.com/cunla/fakeredis-py/pull/55">#55</a>
+  <strong>Full Changelog</strong>: <a href="https://github.com/cunla/fakeredis-py/compare/v1.9.3...v1.9.4">https://github.com/cunla/fakeredis-py/compare/v1.9.3...v1.9.4</a></li>
+</ul>
+<h2 id="v193">v1.9.3<a class="headerlink" href="#v193" title="Permanent link">&para;</a></h2>
+<h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Removed python-six dependency</li>
+</ul>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/cunla/fakeredis-py/compare/v1.9.2...v1.9.3">https://github.com/cunla/fakeredis-py/compare/v1.9.2...v1.9.3</a></p>
+<h2 id="v192">v1.9.2<a class="headerlink" href="#v192" title="Permanent link">&para;</a></h2>
+<h4 id="whats-changed_3">What's Changed<a class="headerlink" href="#whats-changed_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>zadd support for GT/LT in <a href="https://github.com/cunla/fakeredis-py/pull/49">#49</a></li>
+<li>Remove <code>six</code> dependency in <a href="https://github.com/cunla/fakeredis-py/pull/51">#51</a></li>
+<li>Add host to <code>conn_pool_args</code>  in <a href="https://github.com/cunla/fakeredis-py/pull/51">#51</a></li>
+</ul>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/cunla/fakeredis-py/compare/v1.9.1...v1.9.2">https://github.com/cunla/fakeredis-py/compare/v1.9.1...v1.9.2</a></p>
+<h2 id="v191">v1.9.1<a class="headerlink" href="#v191" title="Permanent link">&para;</a></h2>
+<h4 id="whats-changed_4">What's Changed<a class="headerlink" href="#whats-changed_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Zrange byscore in <a href="https://github.com/cunla/fakeredis-py/pull/44">#44</a></li>
+<li>Expire options in <a href="https://github.com/cunla/fakeredis-py/pull/46">#46</a></li>
+</ul>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/cunla/fakeredis-py/compare/v1.9.0...v1.9.1">https://github.com/cunla/fakeredis-py/compare/v1.9.0...v1.9.1</a></p>
+<h2 id="v190">v1.9.0<a class="headerlink" href="#v190" title="Permanent link">&para;</a></h2>
+<h4 id="whats-changed_5">What's Changed<a class="headerlink" href="#whats-changed_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Enable redis7 support in <a href="https://github.com/cunla/fakeredis-py/pull/42">#42</a></li>
+</ul>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/cunla/fakeredis-py/compare/v1.8.2...v1.9.0">https://github.com/cunla/fakeredis-py/compare/v1.8.2...v1.9.0</a></p>
+<h2 id="v182">v1.8.2<a class="headerlink" href="#v182" title="Permanent link">&para;</a></h2>
+<h4 id="whats-changed_6">What's Changed<a class="headerlink" href="#whats-changed_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Update the <code>publish</code> GitHub action to create an issue on failure by <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/terencehonles" title="GitHub User: terencehonles">@terencehonles</a>
+  in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/33">#33</a></li>
+<li>Add <code>release draft</code> job in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/37">#37</a></li>
+<li>Fix input and output type of cursors for SCAN commands by <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/tohin" title="GitHub User: tohin">@tohin</a>
+  in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/40">#40</a></li>
+<li>Fix passing params in args—Fix <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/cunla/fakeredis/issues/36" title="GitHub Issue: cunla/fakeredis #36">#36</a> in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/41">#41</a></li>
+</ul>
+<h4 id="new-contributors_1">New Contributors<a class="headerlink" href="#new-contributors_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a class="magiclink magiclink-github magiclink-mention" href="https://github.com/tohin" title="GitHub User: tohin">@tohin</a> made their first contribution in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/40">#40</a></li>
+</ul>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/dsoftwareinc/fakeredis-py/compare/v1.8.1...v1.8.2">https://github.com/dsoftwareinc/fakeredis-py/compare/v1.8.1...v1.8.2</a></p>
+<h2 id="v181">v1.8.1<a class="headerlink" href="#v181" title="Permanent link">&para;</a></h2>
+<h4 id="whats-changed_7">What's Changed<a class="headerlink" href="#whats-changed_7" title="Permanent link">&para;</a></h4>
+<ul>
+<li>fix: allow redis 4.3.* by <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/terencehonles" title="GitHub User: terencehonles">@terencehonles</a> in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/30">#30</a></li>
+</ul>
+<h4 id="new-contributors_2">New Contributors<a class="headerlink" href="#new-contributors_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a class="magiclink magiclink-github magiclink-mention" href="https://github.com/terencehonles" title="GitHub User: terencehonles">@terencehonles</a> made their first contribution in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/30">#30</a></li>
+</ul>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/dsoftwareinc/fakeredis-py/compare/v1.8...v1.8.1">https://github.com/dsoftwareinc/fakeredis-py/compare/v1.8...v1.8.1</a></p>
+<h2 id="v18">v1.8<a class="headerlink" href="#v18" title="Permanent link">&para;</a></h2>
+<h4 id="whats-changed_8">What's Changed<a class="headerlink" href="#whats-changed_8" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Fix handling url with username and password in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/27">#27</a></li>
+<li>Refactor tests in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/28">#28</a></li>
+<li>23 - Re-add dependencies lost during switch to poetry by <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/xkortex" title="GitHub User: xkortex">@xkortex</a>
+  in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/26">#26</a></li>
+</ul>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/dsoftwareinc/fakeredis-py/compare/v1.7.6.1...v1.8">https://github.com/dsoftwareinc/fakeredis-py/compare/v1.7.6.1...v1.8</a></p>
+<h2 id="v176">v1.7.6<a class="headerlink" href="#v176" title="Permanent link">&para;</a></h2>
+<h4 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h4>
+<ul>
+<li>add <code>IMOVE</code> operation by <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/BGroever" title="GitHub User: BGroever">@BGroever</a> in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/11">#11</a></li>
+<li>Add <code>SMISMEMBER</code> command by <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/OlegZv" title="GitHub User: OlegZv">@OlegZv</a> in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/20">#20</a></li>
+</ul>
+<h4 id="removed">Removed<a class="headerlink" href="#removed" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Remove Python 3.7 by <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/nzw0301" title="GitHub User: nzw0301">@nzw0301</a> in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/8">#8</a></li>
+</ul>
+<h4 id="whats-changed_9">What's Changed<a class="headerlink" href="#whats-changed_9" title="Permanent link">&para;</a></h4>
+<ul>
+<li>fix: work with <code>redis.asyncio</code> by <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/zhongkechen" title="GitHub User: zhongkechen">@zhongkechen</a> in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/10">#10</a></li>
+<li>Migrate to poetry in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/12">#12</a></li>
+<li>Create annotation for redis4+ tests in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/14">#14</a></li>
+<li>Make aioredis and lupa optional dependencies in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/16">#16</a></li>
+<li>Remove aioredis requirement if redis-py 4.2+ by <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/ikornaselur" title="GitHub User: ikornaselur">@ikornaselur</a>
+  in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/19">#19</a></li>
+</ul>
+<h4 id="new-contributors_3">New Contributors<a class="headerlink" href="#new-contributors_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a class="magiclink magiclink-github magiclink-mention" href="https://github.com/nzw0301" title="GitHub User: nzw0301">@nzw0301</a> made their first contribution in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/8">#8</a></li>
+<li><a class="magiclink magiclink-github magiclink-mention" href="https://github.com/zhongkechen" title="GitHub User: zhongkechen">@zhongkechen</a> made their first contribution in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/10">#10</a></li>
+<li><a class="magiclink magiclink-github magiclink-mention" href="https://github.com/BGroever" title="GitHub User: BGroever">@BGroever</a> made their first contribution in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/11">#11</a></li>
+<li><a class="magiclink magiclink-github magiclink-mention" href="https://github.com/ikornaselur" title="GitHub User: ikornaselur">@ikornaselur</a> made their first contribution in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/19">#19</a></li>
+<li><a class="magiclink magiclink-github magiclink-mention" href="https://github.com/OlegZv" title="GitHub User: OlegZv">@OlegZv</a> made their first contribution in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/20">#20</a></li>
+</ul>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/dsoftwareinc/fakeredis-py/compare/v1.7.5...v1.7.6">https://github.com/dsoftwareinc/fakeredis-py/compare/v1.7.5...v1.7.6</a></p>
+<h4 id="thanks-to-our-sponsors-this-month">Thanks to our sponsors this month<a class="headerlink" href="#thanks-to-our-sponsors-this-month" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a class="magiclink magiclink-github magiclink-mention" href="https://github.com/beatgeek" title="GitHub User: beatgeek">@beatgeek</a></li>
+</ul>
+<h2 id="v175">v1.7.5<a class="headerlink" href="#v175" title="Permanent link">&para;</a></h2>
+<h4 id="whats-changed_10">What's Changed<a class="headerlink" href="#whats-changed_10" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Fix python3.8 redis4.2+ issue in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/6">#6</a></li>
+</ul>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/dsoftwareinc/fakeredis-py/compare/v1.7.4...v1.7.5">https://github.com/dsoftwareinc/fakeredis-py/compare/v1.7.4...v1.7.5</a></p>
+<h2 id="v174">v1.7.4<a class="headerlink" href="#v174" title="Permanent link">&para;</a></h2>
+<h4 id="whats-changed_11">What's Changed<a class="headerlink" href="#whats-changed_11" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Support for python3.8 in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/1">#1</a></li>
+<li>Feature/publish action in <a href="https://github.com/dsoftwareinc/fakeredis-py/pull/2">#2</a></li>
+</ul>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/dsoftwareinc/fakeredis-py/compare/1.7.1...v1.7.4">https://github.com/dsoftwareinc/fakeredis-py/compare/1.7.1...v1.7.4</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../guides/test-case/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Write a new test case">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Write a new test case
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../contributing/" class="md-footer__link md-footer__link--next" aria-label="Next: Contributing">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Contributing
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 - 2023 Daniel Moran
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.prune", "navigation.sections", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

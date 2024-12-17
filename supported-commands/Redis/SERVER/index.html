@@ -1,0 +1,3397 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for fakeredis python library">
+      
+      
+        <meta name="author" content="Daniel Moran">
+      
+      
+      
+        <link rel="prev" href="../SCRIPTING/">
+      
+      
+        <link rel="next" href="../SET/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.48">
+    
+    
+      
+        <title>Server - fakeredis</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-GJBJBKXT19"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-GJBJBKXT19",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-GJBJBKXT19",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+<meta name="google-adsense-account" content="ca-pub-2802331499006697">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2802331499006697"
+        crossorigin="anonymous"></script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#redis-server-commands-1170-implemented" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="fakeredis" class="md-header__button md-logo" aria-label="fakeredis" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            fakeredis
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Server
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cunla/fakeredis" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cunla/fakeredis
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="fakeredis" class="md-nav__button md-logo" aria-label="fakeredis" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    fakeredis
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cunla/fakeredis" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cunla/fakeredis
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../redis-stack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Redis stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dragonfly-support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dragonfly support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../valkey-support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Valkey support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Supported commands
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Supported commands
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Redis commands
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Redis commands
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BITMAP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bitmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLUSTER/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cluster
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CONNECTION/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GENERIC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GEO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Geospatial indices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BITMAP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bitmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HASH/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hash
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HYPERLOGLOG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HyperLogLog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LIST/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PUBSUB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pub/Sub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SCRIPTING/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scripting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Server
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Server
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+    <a href="#bgsave" class="md-nav__link">
+      <span class="md-ellipsis">
+        BGSAVE
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#command" class="md-nav__link">
+      <span class="md-ellipsis">
+        COMMAND
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#command-count" class="md-nav__link">
+      <span class="md-ellipsis">
+        COMMAND COUNT
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#command-info" class="md-nav__link">
+      <span class="md-ellipsis">
+        COMMAND INFO
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#dbsize" class="md-nav__link">
+      <span class="md-ellipsis">
+        DBSIZE
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#flushall" class="md-nav__link">
+      <span class="md-ellipsis">
+        FLUSHALL
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#flushdb" class="md-nav__link">
+      <span class="md-ellipsis">
+        FLUSHDB
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#lastsave" class="md-nav__link">
+      <span class="md-ellipsis">
+        LASTSAVE
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#save" class="md-nav__link">
+      <span class="md-ellipsis">
+        SAVE
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#swapdb" class="md-nav__link">
+      <span class="md-ellipsis">
+        SWAPDB
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#time" class="md-nav__link">
+      <span class="md-ellipsis">
+        TIME
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#unsupported-server-commands" class="md-nav__link">
+      <span class="md-ellipsis">
+        Unsupported server commands
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="Unsupported server commands">
+        <ul class="md-nav__list">
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-cat-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL CAT (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-deluser-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL DELUSER (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-dryrun-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL DRYRUN (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-genpass-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL GENPASS (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-getuser-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL GETUSER (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-list-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL LIST (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-load-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL LOAD (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-log-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL LOG (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-save-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL SAVE (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-setuser-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL SETUSER (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-users-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL USERS (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-whoami-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL WHOAMI (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#bgrewriteaof-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        BGREWRITEAOF (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#command-docs-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        COMMAND DOCS (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#command-getkeys-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        COMMAND GETKEYS (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#command-getkeysandflags-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        COMMAND GETKEYSANDFLAGS (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#command-list-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        COMMAND LIST (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#config-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        CONFIG (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#config-get-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        CONFIG GET (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#config-resetstat-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        CONFIG RESETSTAT (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#config-rewrite-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        CONFIG REWRITE (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#config-set-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        CONFIG SET (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#failover-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        FAILOVER (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#info-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        INFO (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#latency-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        LATENCY (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#latency-doctor-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        LATENCY DOCTOR (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#latency-graph-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        LATENCY GRAPH (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#latency-help-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        LATENCY HELP (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#latency-histogram-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        LATENCY HISTOGRAM (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#latency-history-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        LATENCY HISTORY (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#latency-latest-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        LATENCY LATEST (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#latency-reset-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        LATENCY RESET (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#lolwut-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        LOLWUT (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#memory-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        MEMORY (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#memory-doctor-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        MEMORY DOCTOR (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#memory-malloc-stats-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        MEMORY MALLOC-STATS (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#memory-purge-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        MEMORY PURGE (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#memory-stats-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        MEMORY STATS (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#memory-usage-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        MEMORY USAGE (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#module-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        MODULE (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#module-list-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        MODULE LIST (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#module-load-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        MODULE LOAD (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#module-loadex-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        MODULE LOADEX (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#module-unload-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        MODULE UNLOAD (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#monitor-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        MONITOR (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#psync-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        PSYNC (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#replconf-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        REPLCONF (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#replicaof-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        REPLICAOF (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#restore-asking-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        RESTORE-ASKING (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#role-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ROLE (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#shutdown-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        SHUTDOWN (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#slaveof-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        SLAVEOF (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#slowlog-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        SLOWLOG (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#slowlog-get-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        SLOWLOG GET (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#slowlog-help-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        SLOWLOG HELP (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#slowlog-len-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        SLOWLOG LEN (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#slowlog-reset-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        SLOWLOG RESET (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#sync-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        SYNC (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SET/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Set
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SORTEDSET.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sorted Set
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../STREAM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stream
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../STRING/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    String
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TRANSACTIONS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transactions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RedisJson/JSON/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RedisJSON commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RedisTimeSeries/TIMESERIES/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Time Series commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../RedisBloom/BF/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Probabilistic commands
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RedisSearch/SEARCH/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Search commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RedisSearch/SUGGESTION/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suggestion commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DRAGONFLY/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dragonfly commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Guides
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/implement-command/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implementing support for a command
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/test-case/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Write a new test case
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            About
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/changelog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/contributing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+    <a href="#bgsave" class="md-nav__link">
+      <span class="md-ellipsis">
+        BGSAVE
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#command" class="md-nav__link">
+      <span class="md-ellipsis">
+        COMMAND
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#command-count" class="md-nav__link">
+      <span class="md-ellipsis">
+        COMMAND COUNT
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#command-info" class="md-nav__link">
+      <span class="md-ellipsis">
+        COMMAND INFO
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#dbsize" class="md-nav__link">
+      <span class="md-ellipsis">
+        DBSIZE
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#flushall" class="md-nav__link">
+      <span class="md-ellipsis">
+        FLUSHALL
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#flushdb" class="md-nav__link">
+      <span class="md-ellipsis">
+        FLUSHDB
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#lastsave" class="md-nav__link">
+      <span class="md-ellipsis">
+        LASTSAVE
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#save" class="md-nav__link">
+      <span class="md-ellipsis">
+        SAVE
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#swapdb" class="md-nav__link">
+      <span class="md-ellipsis">
+        SWAPDB
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#time" class="md-nav__link">
+      <span class="md-ellipsis">
+        TIME
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
+    <a href="#unsupported-server-commands" class="md-nav__link">
+      <span class="md-ellipsis">
+        Unsupported server commands
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label="Unsupported server commands">
+        <ul class="md-nav__list">
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-cat-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL CAT (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-deluser-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL DELUSER (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-dryrun-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL DRYRUN (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-genpass-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL GENPASS (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-getuser-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL GETUSER (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-list-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL LIST (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-load-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL LOAD (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-log-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL LOG (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-save-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL SAVE (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-setuser-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL SETUSER (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-users-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL USERS (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#acl-whoami-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ACL WHOAMI (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#bgrewriteaof-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        BGREWRITEAOF (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#command-docs-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        COMMAND DOCS (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#command-getkeys-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        COMMAND GETKEYS (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#command-getkeysandflags-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        COMMAND GETKEYSANDFLAGS (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#command-list-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        COMMAND LIST (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#config-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        CONFIG (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#config-get-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        CONFIG GET (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#config-resetstat-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        CONFIG RESETSTAT (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#config-rewrite-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        CONFIG REWRITE (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#config-set-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        CONFIG SET (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#failover-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        FAILOVER (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#info-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        INFO (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#latency-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        LATENCY (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#latency-doctor-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        LATENCY DOCTOR (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#latency-graph-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        LATENCY GRAPH (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#latency-help-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        LATENCY HELP (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#latency-histogram-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        LATENCY HISTOGRAM (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#latency-history-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        LATENCY HISTORY (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#latency-latest-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        LATENCY LATEST (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#latency-reset-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        LATENCY RESET (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#lolwut-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        LOLWUT (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#memory-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        MEMORY (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#memory-doctor-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        MEMORY DOCTOR (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#memory-malloc-stats-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        MEMORY MALLOC-STATS (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#memory-purge-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        MEMORY PURGE (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#memory-stats-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        MEMORY STATS (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#memory-usage-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        MEMORY USAGE (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#module-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        MODULE (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#module-list-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        MODULE LIST (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#module-load-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        MODULE LOAD (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#module-loadex-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        MODULE LOADEX (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#module-unload-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        MODULE UNLOAD (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#monitor-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        MONITOR (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#psync-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        PSYNC (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#replconf-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        REPLCONF (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#replicaof-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        REPLICAOF (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#restore-asking-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        RESTORE-ASKING (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#role-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        ROLE (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#shutdown-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        SHUTDOWN (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#slaveof-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        SLAVEOF (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#slowlog-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        SLOWLOG (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#slowlog-get-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        SLOWLOG GET (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#slowlog-help-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        SLOWLOG HELP (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#slowlog-len-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        SLOWLOG LEN (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#slowlog-reset-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        SLOWLOG RESET (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#sync-not-implemented" class="md-nav__link">
+      <span class="md-ellipsis">
+        SYNC (not implemented)
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/cunla/fakeredis/edit/master/docs/supported-commands/Redis/SERVER.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/cunla/fakeredis/raw/master/docs/supported-commands/Redis/SERVER.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="redis-server-commands-1170-implemented">Redis <code>server</code> commands (11/70 implemented)<a class="headerlink" href="#redis-server-commands-1170-implemented" title="Permanent link">&para;</a></h1>
+<h2 id="bgsave"><a href="https://redis.io/commands/bgsave/">BGSAVE</a><a class="headerlink" href="#bgsave" title="Permanent link">&para;</a></h2>
+<p>Asynchronously saves the database(s) to disk.</p>
+<h2 id="command"><a href="https://redis.io/commands/command/">COMMAND</a><a class="headerlink" href="#command" title="Permanent link">&para;</a></h2>
+<p>Returns detailed information about all commands.</p>
+<h2 id="command-count"><a href="https://redis.io/commands/command-count/">COMMAND COUNT</a><a class="headerlink" href="#command-count" title="Permanent link">&para;</a></h2>
+<p>Returns a count of commands.</p>
+<h2 id="command-info"><a href="https://redis.io/commands/command-info/">COMMAND INFO</a><a class="headerlink" href="#command-info" title="Permanent link">&para;</a></h2>
+<p>Returns information about one, multiple or all commands.</p>
+<h2 id="dbsize"><a href="https://redis.io/commands/dbsize/">DBSIZE</a><a class="headerlink" href="#dbsize" title="Permanent link">&para;</a></h2>
+<p>Returns the number of keys in the database.</p>
+<h2 id="flushall"><a href="https://redis.io/commands/flushall/">FLUSHALL</a><a class="headerlink" href="#flushall" title="Permanent link">&para;</a></h2>
+<p>Removes all keys from all databases.</p>
+<h2 id="flushdb"><a href="https://redis.io/commands/flushdb/">FLUSHDB</a><a class="headerlink" href="#flushdb" title="Permanent link">&para;</a></h2>
+<p>Remove all keys from the current database.</p>
+<h2 id="lastsave"><a href="https://redis.io/commands/lastsave/">LASTSAVE</a><a class="headerlink" href="#lastsave" title="Permanent link">&para;</a></h2>
+<p>Returns the Unix timestamp of the last successful save to disk.</p>
+<h2 id="save"><a href="https://redis.io/commands/save/">SAVE</a><a class="headerlink" href="#save" title="Permanent link">&para;</a></h2>
+<p>Synchronously saves the database(s) to disk.</p>
+<h2 id="swapdb"><a href="https://redis.io/commands/swapdb/">SWAPDB</a><a class="headerlink" href="#swapdb" title="Permanent link">&para;</a></h2>
+<p>Swaps two Redis databases.</p>
+<h2 id="time"><a href="https://redis.io/commands/time/">TIME</a><a class="headerlink" href="#time" title="Permanent link">&para;</a></h2>
+<p>Returns the server time.</p>
+<h2 id="unsupported-server-commands">Unsupported server commands<a class="headerlink" href="#unsupported-server-commands" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>To implement support for a command, see <a href="/guides/implement-command/">here</a> </p>
+</blockquote>
+<h4 id="acl-not-implemented"><a href="https://redis.io/commands/acl/">ACL</a> <small>(not implemented)</small><a class="headerlink" href="#acl-not-implemented" title="Permanent link">&para;</a></h4>
+<p>A container for Access List Control commands.</p>
+<h4 id="acl-cat-not-implemented"><a href="https://redis.io/commands/acl-cat/">ACL CAT</a> <small>(not implemented)</small><a class="headerlink" href="#acl-cat-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Lists the ACL categories, or the commands inside a category.</p>
+<h4 id="acl-deluser-not-implemented"><a href="https://redis.io/commands/acl-deluser/">ACL DELUSER</a> <small>(not implemented)</small><a class="headerlink" href="#acl-deluser-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Deletes ACL users, and terminates their connections.</p>
+<h4 id="acl-dryrun-not-implemented"><a href="https://redis.io/commands/acl-dryrun/">ACL DRYRUN</a> <small>(not implemented)</small><a class="headerlink" href="#acl-dryrun-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Simulates the execution of a command by a user, without executing the command.</p>
+<h4 id="acl-genpass-not-implemented"><a href="https://redis.io/commands/acl-genpass/">ACL GENPASS</a> <small>(not implemented)</small><a class="headerlink" href="#acl-genpass-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Generates a pseudorandom, secure password that can be used to identify ACL users.</p>
+<h4 id="acl-getuser-not-implemented"><a href="https://redis.io/commands/acl-getuser/">ACL GETUSER</a> <small>(not implemented)</small><a class="headerlink" href="#acl-getuser-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Lists the ACL rules of a user.</p>
+<h4 id="acl-list-not-implemented"><a href="https://redis.io/commands/acl-list/">ACL LIST</a> <small>(not implemented)</small><a class="headerlink" href="#acl-list-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Dumps the effective rules in ACL file format.</p>
+<h4 id="acl-load-not-implemented"><a href="https://redis.io/commands/acl-load/">ACL LOAD</a> <small>(not implemented)</small><a class="headerlink" href="#acl-load-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Reloads the rules from the configured ACL file.</p>
+<h4 id="acl-log-not-implemented"><a href="https://redis.io/commands/acl-log/">ACL LOG</a> <small>(not implemented)</small><a class="headerlink" href="#acl-log-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Lists recent security events generated due to ACL rules.</p>
+<h4 id="acl-save-not-implemented"><a href="https://redis.io/commands/acl-save/">ACL SAVE</a> <small>(not implemented)</small><a class="headerlink" href="#acl-save-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Saves the effective ACL rules in the configured ACL file.</p>
+<h4 id="acl-setuser-not-implemented"><a href="https://redis.io/commands/acl-setuser/">ACL SETUSER</a> <small>(not implemented)</small><a class="headerlink" href="#acl-setuser-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Creates and modifies an ACL user and its rules.</p>
+<h4 id="acl-users-not-implemented"><a href="https://redis.io/commands/acl-users/">ACL USERS</a> <small>(not implemented)</small><a class="headerlink" href="#acl-users-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Lists all ACL users.</p>
+<h4 id="acl-whoami-not-implemented"><a href="https://redis.io/commands/acl-whoami/">ACL WHOAMI</a> <small>(not implemented)</small><a class="headerlink" href="#acl-whoami-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Returns the authenticated username of the current connection.</p>
+<h4 id="bgrewriteaof-not-implemented"><a href="https://redis.io/commands/bgrewriteaof/">BGREWRITEAOF</a> <small>(not implemented)</small><a class="headerlink" href="#bgrewriteaof-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Asynchronously rewrites the append-only file to disk.</p>
+<h4 id="command-docs-not-implemented"><a href="https://redis.io/commands/command-docs/">COMMAND DOCS</a> <small>(not implemented)</small><a class="headerlink" href="#command-docs-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Returns documentary information about one, multiple or all commands.</p>
+<h4 id="command-getkeys-not-implemented"><a href="https://redis.io/commands/command-getkeys/">COMMAND GETKEYS</a> <small>(not implemented)</small><a class="headerlink" href="#command-getkeys-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Extracts the key names from an arbitrary command.</p>
+<h4 id="command-getkeysandflags-not-implemented"><a href="https://redis.io/commands/command-getkeysandflags/">COMMAND GETKEYSANDFLAGS</a> <small>(not implemented)</small><a class="headerlink" href="#command-getkeysandflags-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Extracts the key names and access flags for an arbitrary command.</p>
+<h4 id="command-list-not-implemented"><a href="https://redis.io/commands/command-list/">COMMAND LIST</a> <small>(not implemented)</small><a class="headerlink" href="#command-list-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Returns a list of command names.</p>
+<h4 id="config-not-implemented"><a href="https://redis.io/commands/config/">CONFIG</a> <small>(not implemented)</small><a class="headerlink" href="#config-not-implemented" title="Permanent link">&para;</a></h4>
+<p>A container for server configuration commands.</p>
+<h4 id="config-get-not-implemented"><a href="https://redis.io/commands/config-get/">CONFIG GET</a> <small>(not implemented)</small><a class="headerlink" href="#config-get-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Returns the effective values of configuration parameters.</p>
+<h4 id="config-resetstat-not-implemented"><a href="https://redis.io/commands/config-resetstat/">CONFIG RESETSTAT</a> <small>(not implemented)</small><a class="headerlink" href="#config-resetstat-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Resets the server's statistics.</p>
+<h4 id="config-rewrite-not-implemented"><a href="https://redis.io/commands/config-rewrite/">CONFIG REWRITE</a> <small>(not implemented)</small><a class="headerlink" href="#config-rewrite-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Persists the effective configuration to file.</p>
+<h4 id="config-set-not-implemented"><a href="https://redis.io/commands/config-set/">CONFIG SET</a> <small>(not implemented)</small><a class="headerlink" href="#config-set-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Sets configuration parameters in-flight.</p>
+<h4 id="failover-not-implemented"><a href="https://redis.io/commands/failover/">FAILOVER</a> <small>(not implemented)</small><a class="headerlink" href="#failover-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Starts a coordinated failover from a server to one of its replicas.</p>
+<h4 id="info-not-implemented"><a href="https://redis.io/commands/info/">INFO</a> <small>(not implemented)</small><a class="headerlink" href="#info-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Returns information and statistics about the server.</p>
+<h4 id="latency-not-implemented"><a href="https://redis.io/commands/latency/">LATENCY</a> <small>(not implemented)</small><a class="headerlink" href="#latency-not-implemented" title="Permanent link">&para;</a></h4>
+<p>A container for latency diagnostics commands.</p>
+<h4 id="latency-doctor-not-implemented"><a href="https://redis.io/commands/latency-doctor/">LATENCY DOCTOR</a> <small>(not implemented)</small><a class="headerlink" href="#latency-doctor-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Returns a human-readable latency analysis report.</p>
+<h4 id="latency-graph-not-implemented"><a href="https://redis.io/commands/latency-graph/">LATENCY GRAPH</a> <small>(not implemented)</small><a class="headerlink" href="#latency-graph-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Returns a latency graph for an event.</p>
+<h4 id="latency-help-not-implemented"><a href="https://redis.io/commands/latency-help/">LATENCY HELP</a> <small>(not implemented)</small><a class="headerlink" href="#latency-help-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Returns helpful text about the different subcommands.</p>
+<h4 id="latency-histogram-not-implemented"><a href="https://redis.io/commands/latency-histogram/">LATENCY HISTOGRAM</a> <small>(not implemented)</small><a class="headerlink" href="#latency-histogram-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Returns the cumulative distribution of latencies of a subset or all commands.</p>
+<h4 id="latency-history-not-implemented"><a href="https://redis.io/commands/latency-history/">LATENCY HISTORY</a> <small>(not implemented)</small><a class="headerlink" href="#latency-history-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Returns timestamp-latency samples for an event.</p>
+<h4 id="latency-latest-not-implemented"><a href="https://redis.io/commands/latency-latest/">LATENCY LATEST</a> <small>(not implemented)</small><a class="headerlink" href="#latency-latest-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Returns the latest latency samples for all events.</p>
+<h4 id="latency-reset-not-implemented"><a href="https://redis.io/commands/latency-reset/">LATENCY RESET</a> <small>(not implemented)</small><a class="headerlink" href="#latency-reset-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Resets the latency data for one or more events.</p>
+<h4 id="lolwut-not-implemented"><a href="https://redis.io/commands/lolwut/">LOLWUT</a> <small>(not implemented)</small><a class="headerlink" href="#lolwut-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Displays computer art and the Redis version</p>
+<h4 id="memory-not-implemented"><a href="https://redis.io/commands/memory/">MEMORY</a> <small>(not implemented)</small><a class="headerlink" href="#memory-not-implemented" title="Permanent link">&para;</a></h4>
+<p>A container for memory diagnostics commands.</p>
+<h4 id="memory-doctor-not-implemented"><a href="https://redis.io/commands/memory-doctor/">MEMORY DOCTOR</a> <small>(not implemented)</small><a class="headerlink" href="#memory-doctor-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Outputs a memory problems report.</p>
+<h4 id="memory-malloc-stats-not-implemented"><a href="https://redis.io/commands/memory-malloc-stats/">MEMORY MALLOC-STATS</a> <small>(not implemented)</small><a class="headerlink" href="#memory-malloc-stats-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Returns the allocator statistics.</p>
+<h4 id="memory-purge-not-implemented"><a href="https://redis.io/commands/memory-purge/">MEMORY PURGE</a> <small>(not implemented)</small><a class="headerlink" href="#memory-purge-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Asks the allocator to release memory.</p>
+<h4 id="memory-stats-not-implemented"><a href="https://redis.io/commands/memory-stats/">MEMORY STATS</a> <small>(not implemented)</small><a class="headerlink" href="#memory-stats-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Returns details about memory usage.</p>
+<h4 id="memory-usage-not-implemented"><a href="https://redis.io/commands/memory-usage/">MEMORY USAGE</a> <small>(not implemented)</small><a class="headerlink" href="#memory-usage-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Estimates the memory usage of a key.</p>
+<h4 id="module-not-implemented"><a href="https://redis.io/commands/module/">MODULE</a> <small>(not implemented)</small><a class="headerlink" href="#module-not-implemented" title="Permanent link">&para;</a></h4>
+<p>A container for module commands.</p>
+<h4 id="module-list-not-implemented"><a href="https://redis.io/commands/module-list/">MODULE LIST</a> <small>(not implemented)</small><a class="headerlink" href="#module-list-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Returns all loaded modules.</p>
+<h4 id="module-load-not-implemented"><a href="https://redis.io/commands/module-load/">MODULE LOAD</a> <small>(not implemented)</small><a class="headerlink" href="#module-load-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Loads a module.</p>
+<h4 id="module-loadex-not-implemented"><a href="https://redis.io/commands/module-loadex/">MODULE LOADEX</a> <small>(not implemented)</small><a class="headerlink" href="#module-loadex-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Loads a module using extended parameters.</p>
+<h4 id="module-unload-not-implemented"><a href="https://redis.io/commands/module-unload/">MODULE UNLOAD</a> <small>(not implemented)</small><a class="headerlink" href="#module-unload-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Unloads a module.</p>
+<h4 id="monitor-not-implemented"><a href="https://redis.io/commands/monitor/">MONITOR</a> <small>(not implemented)</small><a class="headerlink" href="#monitor-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Listens for all requests received by the server in real-time.</p>
+<h4 id="psync-not-implemented"><a href="https://redis.io/commands/psync/">PSYNC</a> <small>(not implemented)</small><a class="headerlink" href="#psync-not-implemented" title="Permanent link">&para;</a></h4>
+<p>An internal command used in replication.</p>
+<h4 id="replconf-not-implemented"><a href="https://redis.io/commands/replconf/">REPLCONF</a> <small>(not implemented)</small><a class="headerlink" href="#replconf-not-implemented" title="Permanent link">&para;</a></h4>
+<p>An internal command for configuring the replication stream.</p>
+<h4 id="replicaof-not-implemented"><a href="https://redis.io/commands/replicaof/">REPLICAOF</a> <small>(not implemented)</small><a class="headerlink" href="#replicaof-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Configures a server as replica of another, or promotes it to a master.</p>
+<h4 id="restore-asking-not-implemented"><a href="https://redis.io/commands/restore-asking/">RESTORE-ASKING</a> <small>(not implemented)</small><a class="headerlink" href="#restore-asking-not-implemented" title="Permanent link">&para;</a></h4>
+<p>An internal command for migrating keys in a cluster.</p>
+<h4 id="role-not-implemented"><a href="https://redis.io/commands/role/">ROLE</a> <small>(not implemented)</small><a class="headerlink" href="#role-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Returns the replication role.</p>
+<h4 id="shutdown-not-implemented"><a href="https://redis.io/commands/shutdown/">SHUTDOWN</a> <small>(not implemented)</small><a class="headerlink" href="#shutdown-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Synchronously saves the database(s) to disk and shuts down the Redis server.</p>
+<h4 id="slaveof-not-implemented"><a href="https://redis.io/commands/slaveof/">SLAVEOF</a> <small>(not implemented)</small><a class="headerlink" href="#slaveof-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Sets a Redis server as a replica of another, or promotes it to being a master.</p>
+<h4 id="slowlog-not-implemented"><a href="https://redis.io/commands/slowlog/">SLOWLOG</a> <small>(not implemented)</small><a class="headerlink" href="#slowlog-not-implemented" title="Permanent link">&para;</a></h4>
+<p>A container for slow log commands.</p>
+<h4 id="slowlog-get-not-implemented"><a href="https://redis.io/commands/slowlog-get/">SLOWLOG GET</a> <small>(not implemented)</small><a class="headerlink" href="#slowlog-get-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Returns the slow log's entries.</p>
+<h4 id="slowlog-help-not-implemented"><a href="https://redis.io/commands/slowlog-help/">SLOWLOG HELP</a> <small>(not implemented)</small><a class="headerlink" href="#slowlog-help-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Show helpful text about the different subcommands</p>
+<h4 id="slowlog-len-not-implemented"><a href="https://redis.io/commands/slowlog-len/">SLOWLOG LEN</a> <small>(not implemented)</small><a class="headerlink" href="#slowlog-len-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Returns the number of entries in the slow log.</p>
+<h4 id="slowlog-reset-not-implemented"><a href="https://redis.io/commands/slowlog-reset/">SLOWLOG RESET</a> <small>(not implemented)</small><a class="headerlink" href="#slowlog-reset-not-implemented" title="Permanent link">&para;</a></h4>
+<p>Clears all entries from the slow log.</p>
+<h4 id="sync-not-implemented"><a href="https://redis.io/commands/sync/">SYNC</a> <small>(not implemented)</small><a class="headerlink" href="#sync-not-implemented" title="Permanent link">&para;</a></h4>
+<p>An internal command used in replication.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../SCRIPTING/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Scripting">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Scripting
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../SET/" class="md-footer__link md-footer__link--next" aria-label="Next: Set">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Set
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 - 2023 Daniel Moran
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.prune", "navigation.sections", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
